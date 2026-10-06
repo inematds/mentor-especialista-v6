@@ -8,3 +8,9 @@ Curso aberto (formato INEMA v6, aulas de uns 15 minutos): **uma IA que ensina do
 - Versão v2 (mais técnica): https://inematds.github.io/mentor-especialista-curso/
 
 14 aulas em 4 módulos: Por que um mentor · Montar o acervo · Regras e mentor · Provar e manter.
+
+## Mais no INEMA.CLUB
+
+- [Ficha completa deste curso](https://www.inema.club/cursos/317-mentor-especialista-v6-uma-ia-que-ensina-do-jeito-de-quem-voce-admira/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
