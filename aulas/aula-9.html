@@ -1,0 +1,127 @@
+<section class="view" id="v-aula-9" data-aula="9" data-tempo="16min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 9 de 14</p>
+  <h1>Citação conferida <em>por script</em></h1>
+  <figure class="cena"><img src="assets/img/aula-9.webp" width="1280" height="720" alt="Marta, professora, usa uma lupa para comparar a frase escrita num cartão com o trecho de um livro aberto na mesa, conferindo palavra por palavra."></figure>
+  <p class="promise">Você consegue rodar o validador de citações numa cópia das regras e ver ele reprovar uma frase inventada.</p>
+  <p class="why">A IA escreve uma citação plausível com a mesma calma com que copia uma verdadeira. Se ninguém confere, o mentor ensina em nome do especialista algo que ele nunca disse. Conferir à mão as 40 citações do piloto levaria uma tarde.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Toda citação é um trecho copiado do acervo cru, nunca um resumo.</li>
+      <li>Um programa procura cada trecho no arquivo de origem e reprova o que não acha.</li>
+      <li>Para testar se ele morde, estrague uma <b>cópia</b>, nunca o original.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Citação é cópia, não resumo</h2>
+  <p>Na aula 8 você viu que cada regra do <span class="gterm" data-def="o arquivo com as regras de conduta do mentor; cada regra traz o status e os trechos do especialista que a provam.">regras.md</span> traz trechos como prova. Esses trechos saem da pasta <span class="gterm" data-def="a pasta raw/ do mentor: o acervo cru, do jeito que foi coletado. Raw quer dizer cru em inglês. Depois de coletado, ninguém edita.">raw</span>, palavra por palavra, com o caminho do arquivo. Pulou a aula 8? Basta saber isso.</p>
+  <p data-ex="professora">Marta pediu as regras da Profa. Helena Duarte, a autora fictícia de livros sobre avaliação. Uma citação veio bonita demais. Ela abriu o livro transcrito e a frase não estava lá.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Com as palavras da IA</span><p>"Comentar o erro antes da nota é o coração da avaliação." — raw/livros/avaliar.md</p><p>Parece a Helena. Não está no arquivo.</p></div>
+      <div class="depois"><span class="rot">Copiado do raw</span><p>"devolvo a prova com um comentário em cada questão errada" — raw/livros/avaliar.md</p><p>Trecho curto, igual ao arquivo. Dá para achar.</p></div>
+    </div>
+    <figcaption>O kit pede trechos curtos, de 5 a 25 palavras, copiados. Paráfrase não vale como prova.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>O status conta fontes diferentes</h2>
+  <p>A linha <b>status</b> diz quanta prova a regra tem. <b>Ativa</b> exige trechos de pelo menos dois arquivos diferentes. <b>Banco</b> tem uma fonte só e espera a segunda. <b>Inferência</b> não tem citação, e o mentor avisa o aluno quando usa.</p>
+  <p data-ex="consultor">Rui tinha três trechos do Otávio Lessa sobre retorno em 24 horas, todos do mesmo vídeo. Marcou a regra como ativa e o <span class="gterm" data-def="um pequeno programa do kit que confere um resultado e responde só aprovado ou reprovado, sem opinião.">validador</span> barrou. Três trechos de um vídeo continuam sendo uma fonte.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/validar_citacoes.py
+<span class="out">10 regras (10 ativas), 39 citações encontradas, 0 faltando
+REPROVADO:
+  - R9: 'ativa' exige ≥2 fontes diferentes (tem 1) — mova para 'banco'</span></code></pre>
+<p class="tela-nota">Saída real do piloto, com uma citação da R9 tirada de propósito numa cópia.</p></div>
+  <figcaption>Leia assim: "0 faltando" quer dizer que todas as citações existem. Mesmo assim reprova, porque a R9 ficou com um arquivo só e se dizia ativa.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Um programa procura cada trecho no arquivo</h2>
+  <p>O kit traz um <span class="gterm" data-def="um arquivo com instruções que o computador executa de uma vez, como um programa pequeno.">script</span> em <span class="gterm" data-def="a linguagem em que os programas do kit foram escritos. Você não precisa saber escrever nela; o comando python3 os executa.">Python</span> que faz a conferência. Você roda um comando no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, e ele lê cada citação e procura o trecho no arquivo indicado.</p>
+  <p>Ele perdoa acento, maiúscula, pontuação e marca de tempo da legenda. Não perdoa palavra trocada, a mais ou fora de ordem. No piloto, trocamos uma frase verdadeira da R10 por uma inventada.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/validar_citacoes.py
+<span class="out">10 regras (10 ativas), 40 citações encontradas, 0 faltando
+OK</span>
+<span class="pr">$</span> python3 tools/validar_citacoes.py --regras regras-teste.md
+<span class="out">10 regras (10 ativas), 39 citações encontradas, 1 faltando
+REPROVADO:
+  - R10: citação não encontrada em raw/guia/agente-claude-codex-…md: "Handoff nunca é permissão para nada."</span></code></pre>
+<p class="tela-nota">O original diz "Handoff não é permissão." A cópia ganhou "nunca" e "para nada".</p></div>
+  <figcaption>Primeiro o arquivo de verdade passa. Depois a cópia adulterada reprova e aponta a regra e a frase.</figcaption></figure>
+  <p>O fim também conta. Aprovado sai com <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span>; reprovado sai com <span class="gterm" data-def="o código que um programa devolve quando achou um problema. No kit, quer dizer reprovado; o texto acima diz qual foi.">exit 1</span>. Na aula 11, o mentor usa esse sinal para não dizer "funciona" sem ter rodado.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>Salve antes de testar</h2>
+  <p>No mentor do Nei, alguém estragou o próprio regras.md para testar. Para desfazer, usou o comando de voltar do <span class="gterm" data-def="o programa que guarda cópias datadas de uma pasta, para você ver o que mudou e voltar a uma versão anterior. Também baixa projetos do GitHub.">git</span>. Só que as regras novas ainda não tinham virado um <span class="gterm" data-def="uma cópia datada da pasta, guardada pelo git, com uma frase dizendo o que mudou.">commit</span>. O comando voltou o arquivo para a versão antiga e apagou as regras.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">O que aconteceu</span><p>Estragou o original, testou e desfez com o git.</p><p>As regras da fase 3 sumiram. Foram recuperadas do registro da sessão.</p></div>
+      <div class="depois"><span class="rot">O jeito seguro</span><p>Testa numa cópia, com <b>--regras regras-teste.md</b>.</p><p>O original nem é tocado. No fim, apaga a cópia.</p></div>
+      <p class="saldo"><b>Lição registrada no piloto:</b> salvar antes de qualquer teste que estraga coisa de propósito.</p>
+    </div>
+  </figure>
+  <p data-ex="consultor">Rui adotou a regra para tudo. Antes de testar, ele faz uma cópia. Se a cópia quebra, ninguém perde nada.</p>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Não precisa dominar o git agora. Guarde só isto: teste sempre numa cópia. A prática desta aula nunca mexe no original.</p></div>
+</section>
+
+<section class="practice" data-mode="tarefa">
+  <p class="pk">Pratique agora <span class="pcount">0/4</span></p>
+  <h3 class="ph">Faça o validador reprovar uma frase inventada</h3>
+  <p class="pgoal">Pronto quando a cópia reprovar com "1 faltando" e o original seguir com OK. Cerca de 10 minutos, no computador.</p>
+  <p class="psafe">Tudo acontece numa cópia chamada regras-teste.md; o seu regras.md não é alterado. Se o computador não achar python3, troque por python. Se aparecer outro erro, apague a cópia e rode só o primeiro comando.</p>
+  <p>Abra o terminal do mesmo jeito da aula 3 e entre na pasta do seu mentor. Para conferir, digite <b>ls</b>: devem aparecer regras.md, raw e tools. Ainda não tem regras? Use o mentor do Nei, que é público:</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">git clone https://github.com/inematds/mentor-nei
+cd mentor-nei</pre></div>
+  <p>Depois, os comandos do teste:</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">python3 tools/validar_citacoes.py
+cp regras.md regras-teste.md</pre></div>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Rode os dois comandos. O primeiro deve terminar em OK; o segundo cria a cópia.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Abra regras-teste.md no bloco de notas ou em outro editor. Ache uma linha que começa com aspas, troque uma palavra lá dentro e salve.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Rode o teste na cópia e confira "1 faltando", REPROVADO e o nome da regra que você mexeu.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="4"> <span>Apague a cópia e rode o primeiro comando de novo: tem de voltar OK.</span></label></li>
+  </ol>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">python3 tools/validar_citacoes.py --regras regras-teste.md
+rm regras-teste.md
+python3 tools/validar_citacoes.py</pre></div>
+  <p class="pdone">Você viu o validador dizer não. Agora o OK dele vale alguma coisa.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Citação com prova</h3>
+    <ol>
+      <li><span><b>Copiar, não resumir</b>trecho curto do raw, com o caminho do arquivo.</span></li>
+      <li><span><b>Ativa, banco, inferência</b>duas fontes, uma fonte, nenhuma.</span></li>
+      <li><span><b>Teste numa cópia</b>estrague a cópia, confira o REPROVADO, apague a cópia.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe provar que o conferidor de citações funciona, sem arriscar o original.</p>
+    <p class="na-action">Hoje, rode o validador no seu mentor e anote quantas regras estão ativas e quantas no banco. Se houver regra no banco, procure a segunda fonte no seu acervo.</p>
+    <p class="na-hook">Na próxima aula: as regras viram o passo a passo de cada resposta do mentor. Você vai achar as seis partes numa lição real.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-8">← aula anterior</a><a class="next" href="#aula-10">próxima aula →</a></nav>
+<p class="aula-pe">Aula 9 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-9">
+[
+  {"front":"A IA entregou uma citação que resume bem a ideia do especialista, mas com outras palavras. Ela serve como prova?","back":"Não. O validador procura o trecho no arquivo de origem; paráfrase não é encontrada e reprova. Copie de novo do raw."},
+  {"front":"Uma regra tem quatro trechos, todos da mesma live. Qual status ela merece?","back":"Banco. O status conta arquivos diferentes, e quatro trechos de uma live são uma fonte só."},
+  {"front":"Você quer provar que o validador reprova. Onde faz a alteração?","back":"Numa cópia do regras.md, rodando com --regras. O original fica intocado, e no fim a cópia é apagada."},
+  {"front":"Por que rodar um teste que deve falhar, se o validador já disse OK?","back":"Um conferidor que sempre aprova pode estar quebrado. Ver ele reprovar é o que dá valor ao OK."}
+]
+</script>
+</section>

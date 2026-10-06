@@ -1,0 +1,153 @@
+<section class="view" id="v-aula-10" data-aula="10" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 10 de 14</p>
+  <h1>O passo a passo <em>do mentor</em></h1>
+  <figure class="cena"><img src="assets/img/aula-10.webp" width="1280" height="720" alt="Diante de um quadro branco com seis etapas desenhadas como degraus, um consultor aponta a etapa do meio enquanto uma professora anota no caderno."></figure>
+  <p class="promise">Você consegue reconhecer as 6 partes de uma resposta do mentor numa lição real e apontar a parte que falta.</p>
+  <p class="why">Uma resposta comum de IA já chega dizendo "pronto, funciona". Você não vê o caminho e não tem como conferir. O mentor responde sempre no mesmo passo a passo, e cada passo deixa uma prova que você lê.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Toda resposta do mentor com código tem 6 partes, sempre na mesma ordem.</li>
+      <li>A <b>Previsão</b> vem escrita antes de rodar; a <b>Saída real</b> vem colada depois.</li>
+      <li>A <b>Versão quebrada</b> mostra onde a solução falha, antes que falhe com você.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Seis títulos, sempre na mesma ordem</h2>
+  <p>O mentor mora no <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>. Quando você pede uma tarefa com código, ele responde com seis títulos fixos. A ordem vem das instruções que o kit gravou no seu mentor na aula 3. Você não precisa mexer nelas.</p>
+  <p>Os seis são: <b>Pronto</b>, <b>Menor versão</b>, <b>Previsão</b>, <b>Saída real</b>, <b>Versão quebrada</b> e <b>Relatório</b>. Se um título falta, você já sabe onde olhar.</p>
+  <p data-ex="professora">Marta montou o mentor de uma autora fictícia, a professora Helena Duarte, que escreve sobre avaliação. Ela pediu uma planilha de notas por bimestre. A resposta veio com os seis títulos, e Marta conferiu cada um antes de usar.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Resposta do mentor</span></div>
+      <div class="janela-body">
+        <div class="item doc"><span class="pin">1</span> Pronto</div>
+        <div class="item doc"><span class="pin">2</span> Menor versão</div>
+        <div class="item doc"><span class="pin">3</span> Previsão</div>
+        <div class="item doc"><span class="pin">4</span> Saída real</div>
+        <div class="item doc"><span class="pin">5</span> Versão quebrada</div>
+        <div class="item doc"><span class="pin">6</span> Relatório</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>O que é "terminado", em 1 a 3 critérios que dá para conferir.</span></li>
+      <li><span class="pin">2</span><span>A menor coisa que funciona, uma peça de cada vez.</span></li>
+      <li><span class="pin">3</span><span>O que ele espera ver, escrito antes de rodar.</span></li>
+      <li><span class="pin">4</span><span>O que saiu de verdade, colado da tela.</span></li>
+      <li><span class="pin">5</span><span>Um caso que quebra, rodado, com a causa e a correção.</span></li>
+      <li><span class="pin">6</span><span>Uma tabela: passo, o que rodou, o que saiu, regra que guiou.</span></li>
+    </ol>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Pronto vem antes de qualquer código</h2>
+  <p>A lição real desta aula saiu do piloto do Nei, o mentor de teste que o kit montou com as aulas e guias dele. Não importa entender o pedido, só o formato da resposta. O pedido foi um <span class="gterm" data-def="um pequeno programa que o Claude Code roda sozinho num momento combinado, por exemplo antes de um comando ou quando tenta encerrar a resposta.">hook</span> que não deixa o Claude Code encerrar a resposta enquanto a lista de tarefas tiver item aberto. A lista é um arquivo chamado TODO.md.</p>
+  <p>Antes de escrever uma linha, o mentor definiu o sucesso e também o <span class="gterm" data-def="o limite combinado antes de começar para parar de tentar, por exemplo no máximo 3 tentativas, e não ficar preso para sempre.">critério de aborto</span>: quando desistir para não ficar preso. Ele também escreve as suposições, o que deduziu sem você dizer.</p>
+  <p data-ex="consultor">Rui usa a mesma leitura no mentor dele. Quando a parte Pronto não tem limite de tentativas, ele já pede: "qual é o critério de aborto?".</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Claude Code · mentor do Nei</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>/nei-ensina hook Stop que bloqueia enquanto o TODO.md tiver item aberto</p>
+        <p class="msg ia ok"><span class="quem">Mentor</span>Pronto
+Suposição: se o TODO.md não existir, a resposta termina normalmente.
+O hook bloqueia no máximo 3 vezes seguidas. Esse é o critério de aborto.
+1. Com item aberto, bloqueia e lista os itens.
+2. Na 4ª tentativa seguida, libera e avisa.</p>
+      </div>
+      <p class="tela-nota bom">Trecho real da resposta. A suposição vem escrita, não escondida.</p>
+    </div>
+    <figcaption>O pedido começa com <b>/nei-ensina</b>, o atalho de ensino do mentor do Nei. No seu, troque "nei" pelo nome curto que você deu ao mentor na aula 3, por exemplo /helena-ensina.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Previsão escrita, depois a saída real</h2>
+  <p>A Previsão diz o que deve aparecer, com número, antes de rodar. A Saída real cola o que apareceu. Você compara as duas sem precisar entender o código.</p>
+  <p data-ex="professora">Marta não lê programa. Mesmo assim, ela confere se a Previsão dizia "2 itens" e se a Saída real mostra 2 itens. Bateu, ela segue. Não bateu, ela pergunta por quê.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="bom"><span class="rot">Previsão (antes)</span><p>"Com o TODO de teste, bloqueia e lista 2 itens: criar ok.txt e subitem indentado."</p></div>
+      <div class="neutro"><span class="rot">Saída real (depois)</span><p>"TODO.md ainda tem 2 item(ns) aberto(s): criar ok.txt; subitem indentado."</p></div>
+      <p class="saldo"><b>Saldo:</b> bateu nos 3 casos testados. Sem previsão, "deu certo" seria só opinião.</p>
+    </div>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>A versão quebrada mostra o perigo</h2>
+  <p>A primeira versão, a ingênua, funcionava nos casos simples. O mentor então testou um item que ele não consegue fechar sozinho: "aguardar aprovação do cliente". Simulou 6 tentativas seguidas de encerrar.</p>
+  <p>A versão ingênua bloqueou as 6. Numa sessão real, ela giraria para sempre: um laço sem fim. A correção ganhou um teto de 3 bloqueios.</p>
+  <p data-ex="consultor">Rui reconhece o mesmo risco no trabalho dele: um lembrete de cobrança que insiste sem limite irrita o cliente. Por isso ele procura essa parte primeiro.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Versão ingênua</span><p>tentativa 1 → bloqueia<br>tentativa 2 → bloqueia<br>… até a 6 → bloqueia</p><p>Nunca libera.</p></div>
+      <div class="depois"><span class="rot">Com teto de 3</span><p>tentativa 1 → bloqueio 1/3<br>tentativa 3 → bloqueio 3/3<br>tentativa 4 → liberado</p><p>Insiste 3 vezes e solta.</p></div>
+      <p class="saldo"><b>Saldo:</b> de laço sem fim para no máximo 3 insistências. Achado antes de chegar a alguém.</p>
+    </div>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Você não precisa entender o código do hook. Basta ler duas coisas: a Previsão bateu com a Saída real? E existe uma Versão quebrada com a causa escrita? Se as duas respostas forem sim, a resposta está completa.</p></div>
+</section>
+
+<section class="practice" data-mode="analise">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Ache a parte que falta</h3>
+  <p class="pgoal">Pronto quando você tiver marcado as partes presentes e dito qual falta. Cerca de 8 minutos, no celular ou no papel.</p>
+  <p class="psafe">É só leitura: nada roda e nada muda no seu mentor. Errou a marcação? Confira o gabarito e leia de novo a parte trocada.</p>
+  <p>Rui pediu ao mentor dele, de um especialista fictício em vendas, Otávio Lessa, uma conta da comissão do mês. A resposta veio assim:</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Resposta do mentor de Rui</span></div>
+      <div class="tela-body">
+        <p class="msg ia"><span class="quem">Mentor</span>Pronto: a soma bate com a planilha de maio; venda cancelada não entra.
+Menor versão: uma conta só com 3 vendas de exemplo.
+Saída real: total R$ 1.240. A previsão se confirmou.
+Versão quebrada: com uma venda sem valor, a conta parava. Corrigi para pular a linha e avisar.
+Relatório: passo, o que rodou, o que saiu, regra.</p>
+      </div>
+    </div>
+  </figure>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Anote no papel ou no bloco de notas as 6 partes e marque as que aparecem.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Diga qual parte falta e qual frase denuncia o problema.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Escreva o que Rui deve pedir ao mentor para consertar a resposta.</span></label></li>
+  </ol>
+  <details class="gabarito"><summary>Ver gabarito</summary>
+    <p>Aparecem Pronto, Menor versão, Saída real, Versão quebrada e Relatório. <b>Falta a Previsão.</b> A frase "a previsão se confirmou" denuncia: ninguém viu a previsão antes da conta. Foi o mesmo erro que o piloto do Nei cometeu num dos testes. Rui pede: "escreva a Previsão com o total esperado e rode de novo".</p>
+  </details>
+  <p class="pdone">Você acabou de achar, numa resposta que parecia completa, a única parte que garantia a conferência.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>As 6 partes</h3>
+    <ol>
+      <li><span><b>Pronto e Menor versão</b>o critério de sucesso e de aborto, depois a peça mínima.</span></li>
+      <li><span><b>Previsão e Saída real</b>o esperado antes; o que saiu, colado, depois.</span></li>
+      <li><span><b>Versão quebrada e Relatório</b>onde falha e por quê; a tabela com a regra de cada passo.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe ler uma resposta do mentor e apontar o que falta nela.</p>
+    <p class="na-action">Abra a última resposta com código que uma IA deu a você. Procure as 6 partes e conte quantas existem. Leva uns 10 minutos.</p>
+    <p class="na-hook">Na próxima aula: e se o mentor escrever o código e encerrar sem rodar? Você vai provocar a trava que impede isso.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a class="next" href="#aula-11">próxima aula →</a></nav>
+<p class="aula-pe">Aula 10 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-10">
+[
+  {"front":"Uma resposta do mentor diz que deu certo, mas não tem a parte Previsão. O que você pede a ele?","back":"Que escreva o que espera ver, com número, e rode de novo. Sem previsão anotada antes, o acerto não pode ser conferido."},
+  {"front":"Por que a parte Pronto precisa dizer quando desistir, e não só quando terminou?","back":"Porque uma tarefa que não pode ser fechada vira laço sem fim. O hook ingênuo do piloto bloqueou 6 vezes seguidas sem nunca liberar."},
+  {"front":"Você não lê código. Que duas partes da resposta você confere para confiar nela?","back":"Se a Previsão bate com a Saída real, e se existe uma Versão quebrada com a causa explicada."}
+]
+</script>
+</section>

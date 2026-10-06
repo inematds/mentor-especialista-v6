@@ -1,0 +1,144 @@
+<section class="view" id="v-aula-12" data-aula="12" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 12 de 14</p>
+  <h1>Três testes antes de <em>confiar</em> no mentor</h1>
+  <figure class="cena"><img src="assets/img/aula-12.webp" width="1280" height="720" alt="Marta e Rui numa bancada conferindo três caixas numeradas: duas já têm selo verde de aprovado e a terceira ainda está em revisão."></figure>
+  <p class="promise">Você consegue rodar o teste 1 no seu mentor e conferir pelo validador se a lição seguiu o passo a passo.</p>
+  <p class="why">Fontes, <span class="gterm" data-def="o conjunto de páginas curtas, escritas a partir do acervo e ligadas entre si, que o mentor consulta antes de responder.">wiki</span>, regras e portão prontos ainda não provam que o mentor ensina. A própria sessão pode dizer que deu tudo certo. O kit traz três tarefas fixas e um juiz de fora para tirar a dúvida.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>São três testes: ensinar construindo, revisar um código "que funciona" e aprender uma fonte nova.</li>
+      <li>Quem diz se passou é o validador, não o mentor.</li>
+      <li>No piloto do Nei, o teste 1 passou de primeira. O teste 2 precisou de quatro rodadas.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Três tarefas fixas, iguais para todo mentor</h2>
+  <p>O <span class="gterm" data-def="um pequeno programa do kit que confere um resultado e responde só aprovado ou reprovado, sem opinião.">validador</span> só é justo se a prova for sempre a mesma. Por isso o kit guarda os testes numa pasta própria do seu mentor. Ninguém muda as tarefas no meio do caminho.</p>
+  <p>O teste 1 pede uma lição sobre algo que você não domina. O teste 2 entrega um código que parece funcionar e quebra em outro computador. O teste 3 pede para o mentor aprender uma fonte nova.</p>
+  <p data-ex="professora">Marta montou o mentor de Helena Duarte, uma especialista fictícia em avaliação escolar. Antes de usar o mentor nas aulas, ela abriu a pasta de testes para ver o que ia ser cobrado.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>mentor-helena / testes</span></div>
+      <div class="janela-body">
+        <div class="item pasta"><span class="pin">1</span> aceitacao</div>
+        <div class="item doc dentro">README.md (as 3 tarefas)</div>
+        <div class="item doc dentro"><span class="pin">2</span> script_emoji.py</div>
+        <div class="item doc dentro"><span class="pin">3</span> RESULTADOS.md</div>
+        <div class="item pasta"><span class="pin">4</span> respostas</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>As três tarefas, escritas uma vez e nunca alteradas.</span></li>
+      <li><span class="pin">2</span><span>O código do teste 2: funciona no seu computador e quebra no Windows.</span></li>
+      <li><span class="pin">3</span><span>Onde você anota data, teste, se passou e a prova.</span></li>
+      <li><span class="pin">4</span><span>Onde cada lição do mentor fica salva para o validador ler.</span></li>
+    </ol>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Teste 1: peça algo que você não domina</h2>
+  <p>A lição é pedida com a <span class="gterm" data-def="um pedido pronto guardado no mentor, que você chama digitando uma barra e o nome, como /helena-ensina.">skill</span> de ensinar, dentro do <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>. Escolha um assunto em que você não saberia dizer se a resposta está certa. Assim o mentor não se apoia no que você já sabe.</p>
+  <p>No piloto, o Nei pediu um <span class="gterm" data-def="um pequeno programa que o Claude Code roda sozinho num momento combinado, por exemplo antes de um comando ou quando tenta encerrar a resposta.">hook</span> que impede a sessão de encerrar enquanto a lista de pendências tiver item aberto. Veja o começo da lição.</p>
+  <p data-ex="consultor">Rui fez o mesmo com o mentor de Otávio Lessa, um consultor fictício de vendas consultivas. Pediu uma planilha de previsão de fechamento por etapa do funil, coisa que ele nunca tinha montado.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Claude Code · mentor-nei</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>/nei-ensina hook Stop que bloqueia o fim da sessão enquanto o TODO.md tiver item aberto</p>
+        <p class="msg ia ok"><span class="quem">Mentor</span>Pronto: 3 critérios e um teto de 3 bloqueios.
+Previsão: a versão sem teto prende a sessão quando o item depende de outra pessoa.
+Versão quebrada: rodei a versão ingênua. 6 bloqueios seguidos, sem fim.
+Correção: teto de 3. Na 4ª tentativa, ele libera.
+Sua vez: …</p>
+      </div>
+      <p class="tela-nota bom">A versão quebrada foi rodada de verdade. O "Sua vez" é um exercício que veio da regra R6, construir junto.</p>
+    </div>
+    <figcaption>Lição real do teste 1 do piloto, resumida. O mentor levou menos de um minuto, mais o tempo de um ajudante.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>O validador confere de fora</h2>
+  <p>A skill salva a lição em <code>testes/respostas/</code>. Depois, no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, um <span class="gterm" data-def="um arquivo com instruções que o computador executa de uma vez, como um programa pequeno.">script</span> em <span class="gterm" data-def="a linguagem em que os programas do kit foram escritos. Você não precisa saber escrever nela; o comando python3 os executa.">Python</span> lê o arquivo. Ele confere se as cinco partes estão lá e se toda regra citada existe.</p>
+  <p>Com o registro da sessão junto, ele confere mais uma coisa: se houve execução real, e se a previsão veio antes dela. Aprovado termina em <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span>; reprovado, em <span class="gterm" data-def="o código que um programa devolve quando achou um problema. No kit, quer dizer reprovado; o texto acima diz qual foi.">exit 1</span>.</p>
+  <p data-ex="professora">Marta rodou o validador na lição do mentor de Helena sobre rubrica de redação. Saiu exit 1: faltava a parte "Versão quebrada". Ela pediu só essa parte de novo.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/validar_resposta.py testes/respostas/2026-10-05-hook-stop-todo.md --transcript logs/teste1.jsonl
+<span class="out">execuções Bash no transcript: 14
+seções exigidas: 5, regras citadas: R1 … R8
+OK: resposta seguiu o loop</span>
+<span class="pr">$</span> echo $?
+<span class="out">0</span></code></pre>
+<p class="tela-nota">Saída real do teste 1 do piloto: 14 execuções e aprovado.</p></div>
+  <figcaption>Leia a última linha: <b>OK</b> e <b>0</b> querem dizer aprovado. Qualquer "REPROVADO" lista o que faltou.</figcaption></figure>
+  <details class="mais"><summary>Onde está o registro da sessão?</summary><p>O Claude Code guarda cada conversa como um arquivo terminado em .jsonl, na pasta .claude/projects da sua pasta pessoal. Na pasta do mentor, este comando copia o mais recente para a pasta logs:</p><pre class="cmd"><code>mkdir -p logs &amp;&amp; cp "$(ls -t ~/.claude/projects/*/*.jsonl | head -1)" logs/teste1.jsonl</code></pre><p>Depois acrescente <code>--transcript logs/teste1.jsonl</code> ao comando do validador.</p></details>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Não achou o registro da sessão? Rode o validador sem o --transcript. Ele confere as cinco partes e as regras. A ordem previsão-antes-de-rodar fica para quando você tiver o arquivo.</p></div>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>O placar do piloto: 4 de 5 antes de 5 de 5</h2>
+  <p>O teste só conta se você também aprendeu algo. O Nei anotou o dele: um bloqueio sem teto prende a sessão para sempre quando o item não depende da IA.</p>
+  <p>O placar tem cinco critérios. Na primeira passada, o teste 2 ficou parcial: o mentor reproduziu e corrigiu, mas não escreveu a previsão antes de rodar. A próxima aula conta como isso foi resolvido.</p>
+  <p data-ex="consultor">Rui anotou no arquivo de resultados do mentor de Otávio: "teste 1, passou, aprendi que a previsão por etapa erra se eu não separar cliente novo de renovação".</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Primeira passada · kit 1.1</span><p><b>Placar:</b> 4 de 5.</p><p><b>Teste 2:</b> parcial. Reproduziu e provou, sem previsão escrita antes de rodar.</p></div>
+      <div class="depois"><span class="rot">Final · kit 1.3</span><p><b>Placar:</b> 5 de 5, nota 8 em "reconheço a pessoa nas regras".</p><p><b>Teste 2:</b> passou na quarta rodada.</p></div>
+      <p class="saldo"><b>Saldo:</b> duas versões novas do kit, vindas das falhas que o próprio piloto achou.</p>
+    </div>
+  </figure>
+</section>
+
+<section class="practice" data-mode="prompt">
+  <p class="pk">Pratique agora <span class="pcount">0/4</span></p>
+  <h3 class="ph">Rode o teste 1 no seu mentor</h3>
+  <p class="pgoal">No computador. Pronto quando o validador der OK e você souber dizer em duas linhas o que aprendeu. Cerca de 12 minutos.</p>
+  <p class="psafe">O teste só lê e cria arquivos dentro da pasta do mentor. Se o validador reprovar, nada quebrou: peça ao mentor só a parte que faltou e rode de novo. Não fez a aula 3? Leia a lição real em testes/respostas do mentor-nei público e rode o passo 3 nela.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">/&lt;slug&gt;-ensina &lt;algo pequeno do assunto do seu especialista que você ainda não domina&gt;</pre></div>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">python3 tools/validar_resposta.py testes/respostas/&lt;arquivo da lição&gt;.md</pre></div>
+  <details class="mais"><summary>Veja dois pedidos já preenchidos</summary>
+    <p><b>Professora:</b> /helena-ensina como montar uma rubrica de redação com 4 critérios para o 7º ano<br><b>Consultor:</b> /otavio-ensina como montar uma previsão de fechamento por etapa do funil</p>
+  </details>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Abra o Claude Code na pasta do mentor que você criou na aula 3 (em ~/mentores) e cole o primeiro pedido. Troque o <span class="gterm" data-def="o nome curto do mentor, em minúsculas, sem espaço nem acento (ex.: helena). Vira o nome da pasta e dos comandos.">slug</span> pelo apelido do seu mentor e o resto entre &lt; &gt; pelo seu assunto.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Confira se a lição apareceu em testes/respostas e se tem as cinco partes.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>No terminal, na mesma pasta, rode o validador com o nome do arquivo. Leia a última linha.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="4"> <span>Anote no RESULTADOS.md a data, "teste 1", se passou e o que você aprendeu.</span></label></li>
+  </ol>
+  <p class="pdone">Você rodou uma prova que o mentor não pode maquiar e tem a evidência anotada.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Os 3 testes</h3>
+    <ol>
+      <li><span><b>Teste 1</b>lição sobre algo que você não domina, com versão quebrada rodada.</span></li>
+      <li><span><b>Juiz de fora</b>o validador lê o arquivo e o registro; OK e exit 0 é aprovado.</span></li>
+      <li><span><b>Placar</b>só vale com a prova anotada e algo que você aprendeu.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe aplicar o teste 1 e ler o veredito do validador.</p>
+    <p class="na-action">Hoje, rode também o teste 2 com /&lt;slug&gt;-revisa testes/aceitacao/script_emoji.py e guarde a resposta. Só leia; não corrija nada ainda.</p>
+    <p class="na-hook">Na próxima aula: no piloto, o teste 2 falhou duas vezes mesmo com a instrução escrita. Você vai ver o que finalmente funcionou.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-11">← aula anterior</a><a class="next" href="#aula-13">próxima aula →</a></nav>
+<p class="aula-pe">Aula 12 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-12">
+[
+  {"front":"Você vai rodar o teste 1. Por que escolher um assunto que você não domina?","back":"Porque assim o mentor não se apoia no que você já sabe, e você aprende de verdade. Se você já soubesse, não daria para medir o ensino."},
+  {"front":"O mentor terminou a lição dizendo que está tudo certo. O que você faz antes de anotar que passou?","back":"Roda o validador no arquivo da lição, de preferência com o registro da sessão, e só anota se vier OK."},
+  {"front":"O validador mostrou REPROVADO e a lista diz que falta a parte Versão quebrada. Qual é o menor conserto?","back":"Pedir ao mentor só essa parte, com a versão rodada de verdade, e validar de novo. Não precisa refazer a lição."}
+]
+</script>
+</section>

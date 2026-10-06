@@ -1,0 +1,140 @@
+<section class="view" id="v-aula-14" data-aula="14" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 14 de 14</p>
+  <h1>Ensinar coisa nova e <em>atualizar o kit</em></h1>
+  <figure class="cena"><img src="assets/img/aula-14.webp" width="1280" height="720" alt="Marta coloca um livro novo numa estante já organizada e atualiza as etiquetas das prateleiras, enquanto Rui troca uma única peça de uma caixa de ferramentas sem mexer no resto."></figure>
+  <p class="promise">Você consegue ensinar uma fonte nova ao seu mentor e levá-lo para a versão nova do kit sem perder nada.</p>
+  <p class="why">O especialista continua publicando, e o kit continua melhorando: as versões 1.2 e 1.3 nasceram do piloto. Um mentor parado envelhece em meses. Esta aula mostra os dois cuidados de manutenção.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>A skill de ingerir lê um link novo e atualiza a wiki e as regras.</li>
+      <li>Depois, os três validadores precisam dar OK.</li>
+      <li>Atualizar o kit troca as ferramentas do mentor e não toca no conteúdo dele.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Um link novo vira páginas e regras</h2>
+  <p>A <span class="gterm" data-def="um pedido pronto guardado no mentor, que você chama digitando uma barra e o nome, como /helena-ensina.">skill</span> de ingerir, chamada dentro do <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>, recebe um link do especialista que ainda não está no acervo. Ela guarda o texto, cria a página da fonte na <span class="gterm" data-def="o conjunto de páginas curtas, escritas a partir do acervo e ligadas entre si, que o mentor consulta antes de responder.">wiki</span> e liga a fonte aos conceitos. Também anota tudo no diário da wiki, o <span class="gterm" data-def="o diário da wiki: o que entrou, quando e o que mudou. Só se acrescenta, nunca se apaga.">log.md</span>.</p>
+  <p>No piloto, o Nei ingeriu um guia novo sobre usar dois agentes de IA juntos. Levou 2,4 minutos.</p>
+  <p data-ex="professora">Helena Duarte, a especialista fictícia do mentor de Marta, publicou um vídeo novo sobre avaliar alunos que ainda não leem sozinhos. Marta colou o link na skill de ingerir.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Claude Code · mentor-nei</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span><code>/nei-ingere https://inematds.github.io/agente-claude-codex/guia/</code></p>
+        <p class="msg ia ok"><span class="quem">Mentor</span>Fonte nova salva e página criada.
+2 métodos novos: núcleo portátil entre programas e revisão cruzada entre agentes.
+Regras: R9 e R10 criadas já ativas. R1, R2 e R6 reforçadas.
+Índice, página hot e diário atualizados.</p>
+      </div>
+      <p class="tela-nota bom">Resultado real do teste 3 do piloto: uma fonte mudou métodos e regras, não só somou texto.</p>
+    </div>
+    <figcaption>O pedido é uma linha. O trabalho de ligar a fonte ao resto fica com o mentor.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Regra nova, com prova, e conferida de fora</h2>
+  <p>R9 e R10 já nasceram ativas porque a segunda fonte para cada uma já estava no acervo. Cada regra, no <span class="gterm" data-def="o arquivo com as regras de conduta do mentor; cada regra traz o status e os trechos do especialista que a provam.">regras.md</span>, traz as frases do especialista e de onde vieram.</p>
+  <p>Depois de ingerir, rode os três <span class="gterm" data-def="pequenos programas do kit que conferem uma coisa e respondem aprovado ou reprovado, sem opinião.">validadores</span>: o do acervo, o dos links e o das citações. Os três precisam terminar em <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span>.</p>
+  <p data-ex="consultor">Rui ingeriu no mentor de Otávio Lessa, consultor fictício de vendas consultivas, um artigo sobre renovação de contratos. O validador de citações acusou uma frase que não estava na fonte. Ele pediu ao mentor para corrigir só aquela citação, conferindo na fonte, e rodou de novo.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="bom"><span class="rot">R9 · revisão cruzada</span><p>Pôr uma segunda IA para testar o que a primeira fez, com o arquivo real, nunca um resumo.</p><p><b>Citação:</b> "Os dois concordarem não é prova: eles podem dividir a mesma suposição errada."</p></div>
+      <div class="bom"><span class="rot">R10 · decisão humana</span><p>Gasto, publicação, envio ou apagar só com pedido atual do humano.</p><p><b>Citação:</b> "Handoff não é permissão."</p></div>
+      <p class="saldo"><b>Depois da ingestão:</b> 22 fontes, 10 regras ativas, 40 citações, três validadores com OK.</p>
+    </div>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Atualizar o kit sem tocar no conteúdo</h2>
+  <p>Quando sai versão nova do kit, você baixa a novidade e, no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, roda o gerador com a opção de atualizar. Ele troca as ferramentas, o agente, as skills e os portões. Seu acervo, sua wiki e suas regras ficam como estão.</p>
+  <p>Antes, salve o estado da pasta com um <span class="gterm" data-def="uma cópia datada da pasta, guardada pelo git, com uma frase dizendo o que mudou.">commit</span> do <span class="gterm" data-def="o programa que guarda cópias datadas de uma pasta, para você ver o que mudou e voltar a uma versão anterior. Também baixa projetos do GitHub.">git</span>. Na aula 9 você viu o porquê: no piloto, regras não salvas se perderam num teste.</p>
+  <p data-ex="consultor">Rui estava no kit 1.2. Com a atualização, o mentor de Otávio ganhou o <span class="gterm" data-def="a trava do kit 1.3 que nega um comando que executa código enquanto o mentor não escrever na conversa uma linha começando com “Previsão:”.">portão de previsão</span> da aula 13, e as 6 regras dele continuaram iguais.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> cd ~/mentor-especialista &amp;&amp; git pull
+<span class="pr">$</span> python3 novo-mentor.py --atualizar ~/mentores/mentor-otavio
+<span class="out">Mentor otavio atualizado para o kit 1.3.0: … arquivo(s)
+Versões anteriores em .mentor/backup-&lt;data&gt; (se você tinha personalizado o agente, compare).
+Não mexi em: raw/, wiki/, regras.md, ESCOPO.md, CLAUDE.md, testes/respostas/.</span></code></pre>
+<p class="tela-nota">A última linha é a garantia: o conteúdo do mentor ficou intacto.</p></div>
+  <figcaption>Leia a linha "Não mexi em". As versões antigas das ferramentas ficam guardadas na pasta indicada.</figcaption></figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Se aparecer "não é um mentor", o caminho está errado: aponte para a pasta do mentor criada na aula 3, a que tem o arquivo regras.md. Para confirmar que nada sumiu, rode git status: só ferramentas devem aparecer como mudadas.</p></div>
+</section>
+
+<section class="step" data-kind="aplicacao">
+  <h2><span class="n">4</span>Vários mentores: cada um com o núcleo dele</h2>
+  <p>Com um mentor funcionando, dá vontade de montar outros e consultar todos juntos. O agente lê o regras.md, o <span class="gterm" data-def="a página de entrada da wiki: os conceitos que o especialista mais repete, em ordem de quantas fontes falam deles.">hot.md</span> e o <span class="gterm" data-def="o mapa da wiki: a lista de todas as páginas, separadas por pasta.">index.md</span> pela pasta dele. Copiar só o arquivo do agente para outro lugar deixa o mentor sem núcleo: ele volta a responder no genérico.</p>
+  <p data-ex="professora">Marta montou um segundo mentor, de um autor fictício de literatura infantil. Ela chama cada um na pasta dele e compara as duas lições lado a lado.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>~/mentores</span></div>
+      <div class="janela-body">
+        <div class="item pasta"><span class="pin">1</span> mentor-helena</div>
+        <div class="item doc dentro"><span class="pin">2</span> regras.md · wiki/hot.md · wiki/index.md</div>
+        <div class="item pasta"><span class="pin">3</span> mentor-literatura</div>
+        <div class="item doc dentro">regras.md · wiki/hot.md · wiki/index.md</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>Uma pasta por especialista.</span></li>
+      <li><span class="pin">2</span><span>O núcleo que o agente lê. Sem ele, não há regras nem citações.</span></li>
+      <li><span class="pin">3</span><span>O segundo mentor: chame-o na pasta dele, nunca copiando só o agente.</span></li>
+    </ol>
+  </figure>
+</section>
+
+<section class="practice" data-mode="tarefa">
+  <p class="pk">Pratique agora <span class="pcount">0/4</span></p>
+  <h3 class="ph">Ensine uma fonte nova e atualize o kit</h3>
+  <p class="pgoal">No computador. Pronto quando os três validadores derem OK e a atualização disser "Não mexi em". Cerca de 12 minutos.</p>
+  <p class="psafe">O commit do passo 1 guarda tudo; se algo sair estranho, o git devolve a pasta como estava. Se um validador reprovar, pare e peça ao mentor para corrigir só o item listado. Não fez a aula 3? Leia os passos e confira a saída na figura do step 3.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">cd ~/mentores/mentor-&lt;slug&gt;
+git add -A &amp;&amp; git commit -qm "antes de ingerir e atualizar"</pre></div>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">/&lt;slug&gt;-ingere &lt;link novo do seu especialista&gt;</pre></div>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">python3 tools/stats.py &amp;&amp; python3 tools/validar_links.py &amp;&amp; python3 tools/validar_citacoes.py
+cd ~/mentor-especialista &amp;&amp; git pull
+python3 novo-mentor.py --atualizar ~/mentores/mentor-&lt;slug&gt;</pre></div>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>No terminal, entre na pasta do mentor e faça o commit do primeiro bloco.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>No Claude Code, nessa pasta, cole o segundo bloco com um link que o mentor ainda não leu.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Rode a primeira linha do terceiro bloco e confira três OK. Veja a linha nova no wiki/log.md.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="4"> <span>Troque ~/mentor-especialista pela pasta do kit que você baixou na aula 3 (a que tem o novo-mentor.py). Rode as duas últimas linhas e leia o "Não mexi em". Na pasta do mentor, git status deve mostrar só ferramentas mudadas.</span></label></li>
+  </ol>
+  <p class="pdone">Seu mentor aprendeu algo novo do especialista e está na versão atual do kit, com o conteúdo intacto.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Manter o mentor</h3>
+    <ol>
+      <li><span><b>Ingerir</b>link novo vira página, métodos e talvez regra; diário na log.</span></li>
+      <li><span><b>Conferir</b>acervo, links e citações com OK antes de seguir.</span></li>
+      <li><span><b>Atualizar</b>commit antes; o kit troca ferramentas e preserva o conteúdo.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já tem um mentor que aprende com o especialista, prova o que diz e acompanha o kit.</p>
+    <p class="na-action">Hoje, anote três links novos do seu especialista no <span class="gterm" data-def="o arquivo de texto do mentor que diz quem é o especialista, o domínio em uma frase, as fontes a coletar e o que fica de fora.">ESCOPO.md</span>, para ingerir um por semana.</p>
+    <p class="na-hook">Daqui em diante: toda vez que o mentor disser "funcionou", peça a saída real ou o validador. É o hábito que o curso inteiro treinou.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-13">← aula anterior</a><a class="next" href="#trilha">voltar à trilha →</a></nav>
+<p class="aula-pe">Aula 14 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-14">
+[
+  {"front":"Você ingeriu um link novo e o validador de citações reprovou. Qual é o próximo passo?","back":"Parar e pedir ao mentor para corrigir só a citação listada, conferindo com a fonte. Depois rodar os três validadores de novo."},
+  {"front":"Saiu a versão nova do kit. O que você faz antes de rodar a atualização no seu mentor?","back":"Um commit da pasta do mentor, para poder voltar ao estado anterior se algo sair estranho."},
+  {"front":"Um colega copiou só o arquivo do agente do seu mentor para outro projeto e as respostas ficaram genéricas. Por quê?","back":"O agente lê as regras, a página hot e o índice pela pasta do mentor. Fora dela, ele fica sem o núcleo."},
+  {"front":"Como você confere que a atualização do kit não apagou o seu trabalho?","back":"Lendo a linha final da atualização e rodando git status: só ferramentas, agente, skills e portões aparecem mudados."}
+]
+</script>
+</section>

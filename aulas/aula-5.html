@@ -1,0 +1,126 @@
+<section class="view" id="v-aula-5" data-aula="5" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 5 de 14</p>
+  <h1>Coletar e conferir: <em>o que ainda falta?</em></h1>
+  <figure class="cena"><img src="assets/img/aula-5.webp" width="1280" height="720" alt="Marta confere uma lista numa prancheta enquanto caixas chegam a uma estante, marcando o que já chegou e o que ainda falta."></figure>
+  <p class="promise">Você consegue rodar um coletor e ler o que o stats.py diz que ainda falta no acervo.</p>
+  <p class="why">Depois de coletar, a pergunta é simples: está pronto? Olhar a pasta e achar que sim é o mesmo erro da IA que diz que funciona sem ter rodado. O kit responde com um programa que conta.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Cada coleta deixa o texto na pasta, uma linha no manifesto e, se der errado, uma linha no relatório de falhas.</li>
+      <li>O stats.py compara o acervo com as metas e diz quanto falta, em itens e palavras.</li>
+      <li>No piloto, dois defeitos da coleta apareceram assim. O kit que você tem já corrige os dois.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Toda coleta deixa três rastros</h2>
+  <p>O texto coletado vai para a pasta <span class="gterm" data-def="a pasta raw/ do mentor: o acervo cru, do jeito que foi coletado. Raw quer dizer cru em inglês. Depois de coletado, ninguém edita.">raw</span>, separado por tipo. Ao mesmo tempo, o coletor escreve uma linha no <span class="gterm" data-def="a lista de tudo o que foi coletado, com o nome, a origem e a impressão digital de cada arquivo. Fica no arquivo MANIFESTO.json.">manifesto</span>, o arquivo <span class="gterm" data-def="o arquivo dentro de raw/ que guarda o manifesto: uma entrada por fonte coletada, com tipo, origem, número de palavras e hash.">MANIFESTO.json</span>.</p>
+  <p>Cada linha guarda o <span class="gterm" data-def="uma impressão digital do arquivo, calculada a partir de cada letra dele. Mudou uma vírgula, a impressão digital muda inteira.">hash</span> do arquivo. O que falhou vai para o RELATORIO-FALHAS.md, com o motivo. Nada some em silêncio.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>mentor-nei / raw</span></div>
+      <div class="janela-body">
+        <div class="item pasta"><span class="pin">1</span> videos · 14 arquivos .txt</div>
+        <div class="item pasta">guia · 8 arquivos .md</div>
+        <div class="item doc"><span class="pin">2</span> MANIFESTO.json · 22 entradas</div>
+        <div class="item doc"><span class="pin">3</span> RELATORIO-FALHAS.md · "Zb8TRf97zt8 · sem legenda"</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>O texto de cada fonte, numa pasta por tipo.</span></li>
+      <li><span class="pin">2</span><span>A lista com origem, palavras e impressão digital de cada arquivo.</span></li>
+      <li><span class="pin">3</span><span>O que não deu certo e por quê.</span></li>
+    </ol>
+    <figcaption>A pasta raw do piloto do Nei no fim. A falha registrada é a live sem legenda, depois transcrita na máquina.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>O stats.py diz quanto falta</h2>
+  <p>As metas de coleta ficam no arquivo de ajustes do mentor: quantos itens e quantas palavras por tipo. O stats.py soma o acervo e compara. Termina com <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span> quando tudo bate.</p>
+  <p>Se algo falta, termina com <span class="gterm" data-def="o código que um programa devolve quando achou um problema. No kit, quer dizer reprovado; o texto acima diz qual foi.">exit 1</span> e escreve o motivo. No piloto, as lives passaram, mas 6 guias somaram 7.269 palavras, contra a meta de 8.000.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/stats.py
+<span class="out">tipo          itens   palavras   meta
+guia              6       7269   ≥5 itens / ≥8000 pal.
+video            13     169937   ≥10 itens / ≥60000 pal.
+TOTAL            19     177206
+
+REPROVADO:
+  - meta não batida em 'guia': faltam 731 palavras</span></code></pre>
+<p class="tela-nota">Números do piloto no momento da reprovação, no formato do kit atual.</p></div>
+    <figcaption>Olhe as linhas com hífen depois de REPROVADO: cada uma diz o tipo e quanto falta.</figcaption>
+  </figure>
+  <p>A sessão não maquiou o resultado. Relatou a reprovação e sugeriu fontes extras. Com mais 1 guia e a live transcrita, a coleta fechou com 21 itens e 187.382 palavras.</p>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>A palavra REPROVADO assusta, mas na primeira rodada ela é esperada. Leia só as linhas com hífen: cada uma é uma tarefa. Meta alta demais para o tamanho real das fontes? Ajuste a meta depois de listar as fontes, como o piloto fez.</p></div>
+  <p data-ex="professora">Marta viu "faltam 3 item(ns)" em vídeo. Acrescentou três palestras da Helena no <span class="gterm" data-def="o arquivo de texto do mentor que diz quem é o especialista, o domínio em uma frase, as fontes a coletar e o que fica de fora.">ESCOPO.md</span> e coletou de novo.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Os dois defeitos que o piloto achou</h2>
+  <p>O primeiro: o kit mandava coletar cada fonte num <span class="gterm" data-def="um ajudante que o Claude Code chama para uma tarefa fechada. Ele trabalha com a própria memória e devolve só o resultado.">subagente</span>, todos ao mesmo tempo. Mas o manifesto não tinha trava. Dois escrevendo juntos, um apaga a linha do outro.</p>
+  <p>A própria sessão percebeu, rodou um coletor por vez e explicou por quê. Você não precisa fazer nada: vale como exemplo de IA que avisa em vez de fingir. O segundo defeito: a live transcrita foi salva como transcript.txt. A próxima transcrição escreveria por cima dela.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Kit 1.1, no piloto</span><p><b>Paralelo:</b> manifesto sem trava; entradas podiam sumir.</p><p><b>Nome do vídeo:</b> transcript.txt, igual para toda transcrição.</p></div>
+      <div class="depois"><span class="rot">Kit 1.2 em diante</span><p><b>Paralelo:</b> trava no manifesto e gravação de uma vez só.</p><p><b>Nome do vídeo:</b> título mais o código do vídeo, um nome por vídeo.</p></div>
+      <p class="saldo"><b>Saldo:</b> o kit que você criou na aula 3 já é o 1.3, com as duas correções.</p>
+    </div>
+  </figure>
+  <p data-ex="consultor">Rui pediu a coleta dos 30 vídeos do Otávio de uma vez. Com a trava, o manifesto terminou com 30 entradas, e o stats.py confirmou.</p>
+</section>
+
+<section class="practice" data-mode="tarefa">
+  <p class="pk">Pratique agora <span class="pcount">0/4</span></p>
+  <h3 class="ph">Colete um arquivo numa cópia de treino e leia o stats.py</h3>
+  <p class="pgoal">Pronto quando você souber dizer, pela saída, o que falta em cada tipo. No computador, no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, que você abriu na aula 3. Cerca de 10 minutos.</p>
+  <p class="psafe">Tudo acontece numa cópia chamada treino, então o mentor de verdade não muda. Se a cópia der erro, rode ls ~/mentores e confira o nome exato da pasta. Se outro comando der erro, confira se está dentro da pasta treino. Não fez a aula 3? Leia a saída esperada abaixo e responda o passo 4 por ela.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">cp -r ~/mentores/mentor-&lt;nome&gt; ~/mentores/treino-&lt;nome&gt;
+cd ~/mentores/treino-&lt;nome&gt;
+echo "&lt;uma frase do seu especialista&gt;" &gt; nota.txt
+python3 tools/coletar_arquivo.py nota.txt --tipo notas
+python3 tools/stats.py</pre></div>
+  <details class="mais"><summary>Veja a saída que a professora recebeu</summary>
+    <p>ok 13 pal. raw/notas/nota.txt<br>notas 1 item · video 0 de 5 · web 0 de 5<br>REPROVADO: faltam 5 item(ns) e 20000 palavras em video; 5 item(ns) e 10000 palavras em web; RELATORIO-FALHAS.md não existe.</p>
+  </details>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Copie o bloco, troque &lt;nome&gt; pelo nome do seu mentor e a frase entre &lt; &gt;.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Cole no terminal e confira a linha que começa com ok.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Na saída do stats.py, anote no papel o que falta em cada tipo.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="4"> <span>Apague a pasta treino pela janela de arquivos: botão direito › Mover para a lixeira.</span></label></li>
+  </ol>
+  <p class="pdone">Você coletou uma fonte e leu, em números, o que separa o acervo da meta.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Coletar e conferir</h3>
+    <ol>
+      <li><span><b>Três rastros</b>texto em raw, linha no manifesto, falha no relatório.</span></li>
+      <li><span><b>stats.py</b>soma, compara com as metas e diz quanto falta.</span></li>
+      <li><span><b>REPROVADO é tarefa</b>cada linha com hífen é o próximo passo.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe conferir o acervo por um programa que conta, e não pelo olho.</p>
+    <p class="na-action">Hoje, na pasta do mentor de verdade, peça ao <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>: "colete as fontes do ESCOPO.md". Depois rode o stats.py e resolva uma linha com hífen por vez.</p>
+    <p class="na-hook">Na próxima aula: o acervo está completo, mas é uma pilha de texto. Você vai transformar essa pilha numa <span class="gterm" data-def="o conjunto de páginas curtas, escritas a partir do acervo e ligadas entre si, que o mentor consulta antes de responder.">wiki</span> que o mentor consulta.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-4">← aula anterior</a><a class="next" href="#aula-6">próxima aula →</a></nav>
+<p class="aula-pe">Aula 5 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-5">
+[
+  {"front":"O stats.py terminou dizendo que faltam 731 palavras em guia, e você não tem mais guias do especialista. Quais são as duas saídas honestas?","back":"Coletar outra fonte do mesmo tipo ou baixar a meta para o tamanho real das fontes. Nunca editar o texto coletado para inflar o número."},
+  {"front":"Uma live sem legenda apareceu no relatório de falhas. Isso é um defeito do kit?","back":"Não. É o comportamento certo: a falha ficou registrada com o motivo, em vez de sumir. Você decide se transcreve na máquina."},
+  {"front":"Por que coletar várias fontes ao mesmo tempo podia perder itens no kit 1.1?","back":"Porque todos escreviam no mesmo manifesto sem trava, e uma gravação apagava a outra. O kit 1.2 pôs a trava."}
+]
+</script>
+</section>

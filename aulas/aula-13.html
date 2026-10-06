@@ -1,0 +1,149 @@
+<section class="view" id="v-aula-13" data-aula="13" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 13 de 14</p>
+  <h1>Instrução não basta: <em>o portão de previsão</em></h1>
+  <figure class="cena"><img src="assets/img/aula-13.webp" width="1280" height="720" alt="Rui escreve num cartão o que espera que aconteça antes de girar a manivela de uma máquina simples de madeira, enquanto Marta segura o cronômetro."></figure>
+  <p class="promise">Você consegue explicar por que pedir "preveja antes de rodar" não funcionou no piloto e o que funcionou.</p>
+  <p class="why">Você já pediu à IA para fazer de um jeito, ela disse que fez, e não tinha feito. No piloto do Nei, isso aconteceu com o passo mais importante do teste 2. Escrever a instrução mais clara não resolveu. Um mecanismo resolveu.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Prever é escrever o que você espera ver antes de rodar o código.</li>
+      <li>Em duas rodadas, mesmo instruído, o mentor rodou primeiro e escreveu "a previsão bateu" depois.</li>
+      <li>Um portão que nega a execução sem previsão escrita resolveu na primeira tentativa: placar 5 de 5.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>O teste 2 e por que prever importa</h2>
+  <p>O teste 2 entrega um <span class="gterm" data-def="um arquivo com instruções que o computador executa de uma vez, como um programa pequeno.">script</span> com emojis que funciona no computador comum. No <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span> comum ele termina em <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span>. Num console do Windows em <span class="gterm" data-def="a codificação de texto antiga de muitos consoles do Windows; ela não tem emoji.">cp1252</span>, ele quebra. ele quebra e termina em <span class="gterm" data-def="o código que um programa devolve quando achou um problema. No kit, quer dizer reprovado; o texto acima diz qual foi.">exit 1</span>. No <span class="gterm" data-def="a codificação de texto que cobre todas as letras e emojis; é o padrão em quase todo lugar.">UTF-8</span>, roda liso.</p>
+  <p>Quem escreve o que espera <b>antes</b> de rodar mostra que entendeu. Quem escreve depois só descreve o que viu. Por isso o teste exige a previsão primeiro.</p>
+  <p data-ex="professora">Marta faz isso nas aulas de ciências: cada aluno escreve o palpite antes do experimento. Sem o papel, depois do resultado, todo mundo "já sabia".</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 testes/aceitacao/script_emoji.py
+<span class="out">✅ 3 perguntas salvas em relatorio.txt
+exit=0</span>
+<span class="pr">$</span> PYTHONIOENCODING=cp1252 python3 testes/aceitacao/script_emoji.py
+<span class="out">UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f50e'
+exit=1</span></code></pre>
+<p class="tela-nota">O mesmo script: aprovado no primeiro comando, quebrado no segundo.</p></div>
+  <figcaption>O primeiro comando é o computador comum; o segundo imita um console do Windows. A previsão tinha de dizer isso antes.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Rodadas 1, 2 e 3: a instrução não bastou</h2>
+  <p>Na rodada 1, a <span class="gterm" data-def="um pedido pronto guardado no mentor, que você chama digitando uma barra e o nome, como /helena-ensina.">skill</span> de revisão só sugeria prever. O mentor reproduziu a quebra e corrigiu, mas não escreveu a previsão antes. O kit 1.2 passou a exigir uma seção "Previsão".</p>
+  <p>Na rodada 2 o mentor escreveu as cinco seções. Na rodada 3 recebeu a ordem explícita: "escreva uma linha Previsão: antes do primeiro comando". Nas duas, rodou primeiro e escreveu a previsão depois.</p>
+  <p data-ex="consultor">Rui conhece isso da equipe de vendas. O vendedor só preenche a previsão do mês na planilha depois que o cliente já assinou.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Claude Code · rodadas do teste 2</span></div>
+      <div class="tela-caso" data-rotulo="Rodada 2 · kit 1.2">
+        <div class="tela-body">
+          <p class="msg ia falha"><span class="quem">Mentor</span>Vou ler o script sem executar nada.
+[executa o script em cp1252]
+A previsão se confirmou: UnicodeEncodeError.</p>
+        </div>
+        <p class="tela-nota ruim">O validador com o registro reprovou. A sessão principal tinha dito "o validador passa": ela o rodou sem o registro.</p>
+      </div>
+      <div class="tela-caso" data-rotulo="Rodada 3 · ordem explícita">
+        <div class="tela-body">
+          <p class="msg eu"><span class="quem">Você</span>Escreva uma linha "Previsão:" antes do primeiro comando que executa código.</p>
+          <p class="msg ia falha"><span class="quem">Mentor</span>[executa o script em cp1252]
+A previsão bateu: mesmo erro, mesma linha.</p>
+        </div>
+        <p class="tela-nota ruim">O relatório salvo diz que a previsão veio antes. O registro da sessão mostra o contrário. Reprovado de novo.</p>
+      </div>
+    </div>
+    <figcaption><b>Toque nos dois botões.</b> A ordem é a mesma nas duas: executa, depois "previu".</figcaption>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Parece estranho que a IA ignore uma ordem tão clara. Ela previa só no raciocínio interno, que você não vê, e escrevia depois. Guarde a frase do diário: duas tentativas sem avanço, pare de insistir na instrução.</p></div>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Rodada 4: o portão nega a execução</h2>
+  <p>O kit 1.3 trouxe o <span class="gterm" data-def="a trava do kit 1.3 que nega um comando que executa código enquanto o mentor não escrever na conversa uma linha começando com “Previsão:”.">portão de previsão</span>. É um <span class="gterm" data-def="um pequeno programa que o Claude Code roda sozinho num momento combinado, por exemplo antes de um comando ou quando tenta encerrar a resposta.">hook</span> que olha cada comando antes de o <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span> rodá-lo. Ler e listar arquivos passa direto. Executar código só passa com uma previsão já escrita na conversa.</p>
+  <p>Ele é irmão do <span class="gterm" data-def="a trava do kit que não deixa o mentor encerrar a resposta quando escreveu código e não rodou.">portão de execução</span> da aula 11. Um cobra rodar; o outro cobra prever antes de rodar.</p>
+  <p data-ex="consultor">Rui ligou o portão no mentor de Otávio Lessa, um consultor fictício de vendas consultivas. Ao revisar a planilha de comissões, o mentor teve um comando negado e escreveu a previsão antes de rodar.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Claude Code · rodada 4</span></div>
+      <div class="tela-body">
+        <p class="msg ia falha"><span class="quem">Mentor</span>[tenta executar o script]</p>
+        <p class="msg ia"><span class="quem">Portão</span>Portão de previsão: antes de executar código, escreva na conversa uma linha 'Previsão: …' com o que você espera ver (valor, saída ou erro).</p>
+        <p class="msg ia ok"><span class="quem">Mentor</span>Previsão: UnicodeEncodeError com '\U0001f50e' na linha 28, exit 1 e nenhum relatorio.txt criado.
+[executa] A previsão bateu.</p>
+      </div>
+      <p class="tela-nota bom">Agora a previsão está escrita antes, à vista de todos. O comando negado nem chegou a rodar, por isso não conta como execução.</p>
+    </div>
+    <figcaption>Texto real do aviso do portão e da previsão da rodada 4 do piloto.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>Quem confirma é o validador, de fora</h2>
+  <p>O placar não fechou porque o mentor disse que acertou. Fechou porque o <span class="gterm" data-def="um pequeno programa do kit que confere um resultado e responde só aprovado ou reprovado, sem opinião.">validador</span> leu o registro da sessão e achou a previsão antes da primeira execução.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Instrução · rodadas 2 e 3</span><p><b>O que mudou:</b> skill exigindo a seção, depois a ordem explícita.</p><p><b>Resultado:</b> reprovado duas vezes pelo validador.</p></div>
+      <div class="depois"><span class="rot">Mecanismo · rodada 4</span><p><b>O que mudou:</b> o portão de previsão, no kit 1.3.</p><p><b>Resultado:</b> 9 execuções, OK. Placar final 5 de 5.</p></div>
+      <p class="saldo"><b>Saldo:</b> instrução falhou duas vezes; mecanismo mais conferência de fora resolveu na primeira.</p>
+    </div>
+  </figure>
+  <div class="quiz" data-answer="c">
+    <p class="qk">Teste-se</p>
+    <p class="q">A resposta salva do mentor tem a seção "Previsão" completa e diz "a previsão bateu". O que prova que ele previu antes?</p>
+    <button class="opt" data-k="a" data-fb="A seção existia nas rodadas 2 e 3, e mesmo assim a previsão veio depois.">A seção Previsão aparecer na resposta</button>
+    <button class="opt" data-k="b" data-fb="A frase foi escrita depois de rodar; ela descreve, não prova a ordem.">O mentor afirmar que a previsão bateu</button>
+    <button class="opt" data-k="c" data-fb="Só o registro mostra a ordem real: previsão primeiro, execução depois.">O validador ler o registro da sessão</button>
+    <p class="qfb" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="practice" data-mode="analise">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Ache a virada nas quatro rodadas</h3>
+  <p class="pgoal">Pronto quando você responder as três perguntas e conferir no gabarito. Dá para fazer no celular; anote no papel ou no bloco de notas. Cerca de 8 minutos.</p>
+  <p class="psafe">É só leitura de um caso real; nada roda. Se errar uma resposta, volte ao step indicado no gabarito.</p>
+  <p><b>O caso.</b> Rodada 1 (kit 1.1): reproduziu e corrigiu, sem previsão escrita antes. Rodada 2 (kit 1.2): skill exige a seção; previsão escrita depois; a sessão disse "o validador passa", mas o rodou sem o registro. Rodada 3: ordem explícita; mesmo resultado; reprovado. Rodada 4 (kit 1.3): portão negou um comando; previsão escrita; 9 execuções, OK.</p>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Em qual rodada acontece a virada, e o que mudou nela que não era um texto pedindo?</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Na rodada 2, a sessão disse que o validador passava. O que faltou para essa frase valer?</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Pense no seu mentor (de Helena, de Otávio, do seu especialista). Que conferência de fora você vai exigir antes de acreditar num "funcionou"?</span></label></li>
+  </ol>
+  <details class="gabarito"><summary>Gabarito</summary>
+    <p><b>1.</b> Rodada 4. Entrou um mecanismo, o portão, que nega a execução sem previsão escrita (step 3).<br><b>2.</b> Rodar o validador com o registro da sessão. Sem ele, o validador não confere a ordem (step 2).<br><b>3.</b> Resposta sua. Uma boa: "validador com registro, exit 0, anotado no RESULTADOS.md".</p>
+  </details>
+  <p class="pdone">Você sabe apontar quando insistir na instrução não adianta e qual mecanismo colocar no lugar.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Instrução × mecanismo</h3>
+    <ol>
+      <li><span><b>Prever</b>escrever o que espera ver antes de rodar, à vista.</span></li>
+      <li><span><b>Duas falhas</b>instrução repetida duas vezes sem avanço: troque por um mecanismo.</span></li>
+      <li><span><b>De fora</b>a palavra da sessão não fecha o placar; o validador com registro fecha.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe por que "preveja antes" falhou como pedido e funcionou como portão.</p>
+    <p class="na-action">Hoje, pegue a resposta do teste 2 que você guardou na aula 12. Procure a linha "Previsão" e veja se ela vem antes do primeiro comando que rodou.</p>
+    <p class="na-hook">Na próxima aula: seu especialista publicou um vídeo novo e o kit ganhou versão nova. Você vai atualizar os dois sem perder nada.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-12">← aula anterior</a><a class="next" href="#aula-14">próxima aula →</a></nav>
+<p class="aula-pe">Aula 13 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-13">
+[
+  {"front":"Você reescreveu duas vezes a instrução para o mentor e ele continua fazendo do jeito antigo. O que o piloto ensina a fazer na terceira vez?","back":"Parar de insistir no texto e colocar um mecanismo que impede o comportamento errado, como um portão que nega o comando."},
+  {"front":"Qual a diferença entre o portão de execução e o portão de previsão?","back":"O de execução não deixa encerrar sem rodar o código. O de previsão não deixa rodar sem antes escrever o que se espera ver."},
+  {"front":"A sessão garante que o validador passou. Que pergunta você faz antes de acreditar?","back":"Ele foi rodado com o registro da sessão? Sem o registro, a ordem previsão-antes-de-rodar não foi conferida."}
+]
+</script>
+</section>

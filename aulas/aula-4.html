@@ -1,0 +1,124 @@
+<section class="view" id="v-aula-4" data-aula="4" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 4 de 14</p>
+  <h1>Juntar as fontes <em>sem pagar nada</em></h1>
+  <figure class="cena"><img src="assets/img/aula-4.webp" width="1280" height="720" alt="Rui monta numa parede um quadro com as fontes do especialista: fitas de vídeo, livros e recortes de artigos presos com alfinetes e ligados por linhas."></figure>
+  <p class="promise">Você consegue listar 10 fontes do seu especialista e dizer qual coletor do kit usa para cada uma.</p>
+  <p class="why">O mentor só sabe o que o especialista publicou e você juntou. Sem lista, a coleta vira um monte de abas abertas e arquivos soltos. Com a lista certa, o kit junta tudo em minutos, sem gastar um centavo.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Cada tipo de fonte tem um coletor: vídeo, página, código ou arquivo.</li>
+      <li>Vídeo com legenda pronta sai em segundos. Sem legenda, vira transcrição na sua máquina.</li>
+      <li>O que não tem coletor entra por exportação manual. Nada de serviço pago.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Cada tipo de fonte tem o seu coletor</h2>
+  <p>Um <b>coletor</b> é um programa pequeno do kit que busca o texto de uma fonte e guarda numa pasta do mentor. Eles já vieram na pasta criada na aula 3; não há nada a acrescentar. São quatro: um para vídeo, um para página da internet, um para código publicado e um para arquivo que você já tem.</p>
+  <p>A lista de fontes mora no <span class="gterm" data-def="o arquivo de texto do mentor que diz quem é o especialista, o domínio em uma frase, as fontes a coletar e o que fica de fora.">ESCOPO.md</span>, na pasta do mentor. Cada linha diz o tipo, a origem e o coletor.</p>
+  <p data-ex="consultor">Rui monta o mentor de Otávio Lessa, consultor fictício de vendas consultivas. A tabela dele ficou assim: palestras em vídeo, artigos do blog e os posts que o Otávio publica toda semana.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>ESCOPO.md · Fontes</span></div>
+      <div class="janela-body">
+        <div class="item doc"><span class="pin">1</span> video · palestra "A primeira reunião" · <code>coletar_video.py</code></div>
+        <div class="item doc"><span class="pin">2</span> blog · artigo "Diagnóstico antes da proposta" · <code>coletar_web.py --tipo blog</code></div>
+        <div class="item doc"><span class="pin">3</span> posts · exportação dos posts da conta · <code>coletar_arquivo.py --tipo posts</code></div>
+        <div class="item doc"><span class="pin">4</span> repo · código publicado (raro fora da área técnica) · <code>coletar_repo.py</code></div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>Vídeo: o coletor pega a legenda pronta.</span></li>
+      <li><span class="pin">2</span><span>Página, blog ou guia: o coletor lê o texto da página.</span></li>
+      <li><span class="pin">3</span><span>Posts, livro, notas: você exporta e entrega o arquivo.</span></li>
+      <li><span class="pin">4</span><span>Código: só para especialista que publica projetos.</span></li>
+    </ol>
+    <figcaption>Uma linha por fonte. O coletor da linha é o comando que vai buscá-la.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Legenda primeiro, transcrição só se faltar</h2>
+  <p>Quase todo vídeo já tem legenda, feita pela própria plataforma. O coletor de vídeo pede só essa legenda, sem baixar o vídeo. Por isso é rápido.</p>
+  <p>Quando o vídeo não tem legenda, o coletor chama um transcritor que roda no seu computador. Funciona, mas leva minutos por vídeo. Sem transcritor configurado, o vídeo vai para o relatório de falhas.</p>
+  <p>O piloto do mentor do Nei mostra a diferença em números reais.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="depois"><span class="rot">Com legenda</span><p><b>13 lives</b> do Nei.</p><p><b>Resultado:</b> 169.937 palavras em 1,6 minuto.</p></div>
+      <div class="neutro"><span class="rot">Sem legenda</span><p><b>1 live</b> sem legenda.</p><p><b>Resultado:</b> 8.045 palavras em 7,7 minutos de transcrição na máquina.</p></div>
+      <p class="saldo"><b>Saldo:</b> uma live sem legenda custou quase cinco vezes o tempo das outras treze juntas.</p>
+    </div>
+  </figure>
+  <p data-ex="professora">Marta monta o mentor de Helena Duarte, especialista fictícia em avaliação escolar. Das 12 palestras da Helena, 11 tinham legenda. Ela deixou a única sem legenda para o fim.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Sem coletor? Exporte e entregue o arquivo</h2>
+  <p>Posts de rede social, livro e anotações de palestra não têm coletor automático. Existem serviços que coletam posts em massa, mas cobram por uso. Esse tipo de serviço se chama <span class="gterm" data-def="a porta pela qual um programa pede dados ou trabalho a um serviço de fora. Muitas cobram por chamada.">API</span>, e o kit não chama nenhuma API paga.</p>
+  <p>O caminho é manual. O mais simples: abra o perfil, copie os posts e cole num arquivo .txt do bloco de notas. Depois entregue esse arquivo ao coletor de arquivos, num comando no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>.</p>
+  <p data-ex="consultor">Rui copiou 40 posts do Otávio para um arquivo chamado posts-otavio.txt. Um comando colocou tudo no acervo.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/coletar_arquivo.py posts-otavio.txt --tipo posts --origem "posts copiados em 2026-10"
+<span class="out">ok   6120 pal.  raw/posts/posts-otavio.txt</span></code></pre>
+<p class="tela-nota">A primeira linha é o que você digita. A segunda diz quantas palavras entraram e onde o arquivo ficou.</p></div>
+    <figcaption>Exemplo do Rui. O <b>ok</b> com o número de palavras é a confirmação de que o arquivo entrou.</figcaption>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Não achou 10 fontes? Conte cada vídeo, cada artigo e cada arquivo de posts como uma fonte. O piloto do Nei começou com 14 lives e 6 guias. Se o especialista publica pouco, 5 fontes boas já servem para treinar.</p></div>
+</section>
+
+<section class="practice" data-mode="tarefa">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Preencha a tabela de fontes do seu mentor</h3>
+  <p class="pgoal">Pronto quando a tabela tiver 10 linhas, cada uma com tipo, origem e coletor. No computador. Cerca de 10 minutos.</p>
+  <p class="psafe">Aqui você só escreve uma lista. Nada é coletado ainda. A pasta do mentor é a que você criou na aula 3, em mentores/mentor-&lt;nome do seu mentor&gt;. Não fez a aula 3? Escreva a tabela no bloco de notas ou no papel: ela entra no arquivo depois.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">| tipo | origem (URL ou arquivo) | coletor | observação |
+|---|---|---|---|
+| video | &lt;endereço do vídeo&gt; | coletar_video.py | &lt;tem legenda?&gt; |
+| blog | &lt;endereço do artigo&gt; | coletar_web.py --tipo blog | |
+| posts | &lt;arquivo .txt com os posts&gt; | coletar_arquivo.py --tipo posts | exportação manual |</pre></div>
+  <details class="mais"><summary>Veja três linhas preenchidas pela professora</summary>
+    <p>video · palestra da Helena "Prova que ensina" · coletar_video.py · tem legenda<br>blog · artigo "Devolutiva em 3 linhas" · coletar_web.py --tipo blog<br>livro · capítulo 2 convertido em texto · coletar_arquivo.py --tipo livro · exportação manual</p>
+  </details>
+  <details class="mais"><summary>Veja as 10 linhas do consultor, para copiar e adaptar</summary>
+    <p>1 a 6 · video · palestras do Otávio no canal dele · coletar_video.py · 5 com legenda, 1 sem<br>7 e 8 · blog · dois artigos do blog do Otávio · coletar_web.py --tipo blog<br>9 · posts · 40 posts copiados para posts-otavio.txt · coletar_arquivo.py --tipo posts<br>10 · livro · capítulo do e-book dele copiado para texto · coletar_arquivo.py --tipo livro</p>
+  </details>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Abra o arquivo ESCOPO.md da pasta do mentor com o editor de texto (no Windows e no Linux, botão direito › Abrir com; no Mac, botão direito › Abrir com › TextEdit).</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Cole o molde na seção Fontes e escreva 10 linhas. Para achar fontes: abra o canal do especialista e a aba de vídeos, o blog dele e o perfil onde ele posta.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Em cada vídeo, abra a página e veja se o botão de legenda existe. Anote na coluna observação.</span></label></li>
+  </ol>
+  <p class="pdone">Você tem a lista do acervo e sabe por qual porta cada fonte vai entrar.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Fontes e coletores</h3>
+    <ol>
+      <li><span><b>Uma linha por fonte</b>tipo, origem e coletor, na tabela do ESCOPO.md.</span></li>
+      <li><span><b>Legenda antes</b>vídeo com legenda sai em segundos; sem legenda, transcrição na máquina.</span></li>
+      <li><span><b>Exportação manual</b>posts, livro e notas entram como arquivo .txt, sem serviço pago.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe montar a lista do acervo e escolher o coletor certo para cada fonte.</p>
+    <p class="na-action">Hoje, separe o arquivo de uma fonte sem coletor: copie 10 posts ou uma anotação do seu especialista para um .txt.</p>
+    <p class="na-hook">Na próxima aula: você roda o primeiro coletor e lê o relatório que diz, em números, o que ainda falta.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-3">← aula anterior</a><a class="next" href="#aula-5">próxima aula →</a></nav>
+<p class="aula-pe">Aula 4 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-4">
+[
+  {"front":"Seu especialista tem uma palestra antiga sem legenda e nenhum transcritor configurado. O que acontece quando o coletor tenta pegar esse vídeo?","back":"Ele não inventa nada: o vídeo vai para o relatório de falhas. Você decide depois se vale transcrever na máquina."},
+  {"front":"Você quer os posts semanais do especialista no acervo. Contrata um serviço que coleta em massa ou faz outra coisa?","back":"Exporta pelo próprio site ou copia para um .txt e entrega ao coletor de arquivos. O kit não usa serviço pago."},
+  {"front":"Por que vale olhar se cada vídeo tem legenda antes de coletar?","back":"Porque legenda pronta sai em segundos, e cada vídeo sem legenda pode custar vários minutos de máquina. Saber antes ajuda a ordenar a coleta."}
+]
+</script>
+</section>

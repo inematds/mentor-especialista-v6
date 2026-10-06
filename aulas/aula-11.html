@@ -1,0 +1,122 @@
+<section class="view" id="v-aula-11" data-aula="11" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 11 de 14</p>
+  <h1>O portão: rodar antes de <em>dizer que funciona</em></h1>
+  <figure class="cena"><img src="assets/img/aula-11.webp" width="1280" height="720" alt="Uma professora diante de uma catraca na porta de uma oficina mostra um bilhete marcado como testado; só com ele a catraca libera a passagem."></figure>
+  <p class="promise">Você consegue provocar o portão no seu mentor e reconhecer o aviso "Stop hook error occurred" como a trava funcionando.</p>
+  <p class="why">A IA escreve um código e encerra dizendo que funciona, sem ter rodado nada. Pedir "rode antes" ajuda, mas não garante. O kit traz uma trava que não depende da boa vontade da IA.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Escreveu código e não rodou? O portão não deixa a resposta terminar.</li>
+      <li>O aviso "Stop hook error occurred" é o portão trabalhando, não um defeito.</li>
+      <li>Listar, abrir o arquivo ou guardar uma cópia não contam como rodar.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Código escrito e não rodado segura a resposta</h2>
+  <p>O kit liga no seu mentor o <span class="gterm" data-def="a trava do kit que não deixa o mentor encerrar a resposta quando escreveu código e não rodou.">portão de execução</span>. Ele é um <span class="gterm" data-def="um pequeno programa que o Claude Code roda sozinho num momento combinado, por exemplo antes de um comando ou quando tenta encerrar a resposta.">hook</span>: anota cada arquivo de código criado ou mudado. Quando o arquivo roda, a anotação some.</p>
+  <p>Se o <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span> tenta encerrar com anotação pendente, o portão devolve a vez a ele com um recado. O recado aparece no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, a janela onde o Claude Code conversa com você.</p>
+  <p data-ex="consultor">Rui pediu ao mentor dele uma conta de comissão. O mentor escreveu o arquivo e quis encerrar. O portão devolveu a vez, o mentor rodou a conta e só então mostrou o total.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal · piloto do Nei</span></div>
+<pre><code><span class="pr">&gt;</span> Crie o arquivo teste_portao.py com um print e NÃO rode.
+<span class="out">Criei o teste_portao.py.</span>
+<span class="out">Stop hook error occurred: Você escreveu código e não rodou:
+teste_portao.py. Rode cada um (ou os testes) e mostre a saída
+real antes de dizer que funciona.</span></code></pre>
+<p class="tela-nota">A primeira linha é o pedido; o resto é o que voltou na sessão real do piloto.</p></div>
+<figcaption>O recado em <b>"Você escreveu código e não rodou"</b> é o portão. Ele diz qual arquivo ficou sem rodar.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>O aviso assusta, mas é a trava</h2>
+  <p>O Claude Code rotula esse bloqueio como "Stop hook error occurred". Parece erro do kit. No piloto, o Nei anotou isso como problema de mensagem, e o kit passou a explicar o aviso no guia.</p>
+  <p data-ex="professora">Marta viu o aviso pela primeira vez e quase fechou tudo. Leu a linha de baixo, viu o nome do arquivo e entendeu: faltava rodar. Esperou, e o mentor rodou sozinho.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">O que parece</span><p>"Deu erro. O kit está quebrado."</p><p>A pessoa fecha a sessão e perde a resposta.</p></div>
+      <div class="depois"><span class="rot">O que é</span><p>"O portão devolveu a vez: falta rodar teste_portao.py."</p><p>O mentor roda e segue.</p></div>
+    </div>
+    <figcaption>Leia sempre a linha depois do aviso. Ela diz qual arquivo ficou sem rodar.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>O que não conta como rodar</h2>
+  <p>Rodar é executar o arquivo e ver a saída. Algumas ações parecem trabalho, mas não executam nada. O portão ignora todas elas.</p>
+  <p>Uma é guardar uma cópia datada com o <span class="gterm" data-def="o programa que guarda cópias datadas de uma pasta, para você ver o que mudou e voltar a uma versão anterior. Também baixa projetos do GitHub.">git</span>. Essa cópia se chama <span class="gterm" data-def="uma cópia datada da pasta, guardada pelo git, com uma frase dizendo o que mudou.">commit</span>. Guardar não é testar.</p>
+  <p data-ex="professora">Marta pediu uma planilha de notas. O mentor abriu o arquivo, leu o conteúdo e guardou um commit. Nada disso rodou a planilha, e o portão segurou a resposta.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> ls                          <span class="out"># lista arquivos: não roda</span>
+<span class="pr">$</span> cat notas.py                <span class="out"># abre e lê: não roda</span>
+<span class="pr">$</span> git commit -m "notas"      <span class="out"># guarda cópia: não roda</span>
+<span class="pr">$</span> python3 -m py_compile notas.py  <span class="out"># só checa: não roda</span>
+<span class="pr">$</span> python3 notas.py            <span class="out"># executa: este conta</span></code></pre>
+<p class="tela-nota">Só a última linha executa o arquivo. As quatro de cima deixam a anotação no lugar.</p></div>
+<figcaption>Você não digita nada disso: são comandos que o mentor usa. Se ele diz "pronto" depois só das quatro primeiras, não rodou nada.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>Uma trava, não uma prisão</h2>
+  <p>O portão bloqueia no máximo uma vez por arquivo editado. Se o pedido diz "não rode", o mentor explica e encerra na segunda tentativa. Foi o que aconteceu no piloto.</p>
+  <p>Pedidos sem código também passam livres. No piloto, "agora só liste os arquivos" não teve bloqueio nenhum.</p>
+  <p data-ex="consultor">Rui pede ao mentor um resumo de uma reunião com cliente. Não há código, então o portão nem aparece.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal · piloto do Nei</span></div>
+<pre><code><span class="pr">&gt;</span> Agora só liste os arquivos com ls.
+<span class="out">CLAUDE.md  ESCOPO.md  raw  regras.md  teste_portao.py  wiki</span></code></pre>
+<p class="tela-nota">Sem aviso: listar não pede para rodar código.</p></div>
+<figcaption>Depois do teste, o pedido seguinte segue normal. A trava some quando não há código pendente.</figcaption></figure>
+  <details class="mais"><summary>E o mentor que roda antes de prever?</summary><p>O kit tem um segundo portão, o <span class="gterm" data-def="a trava do kit 1.3 que nega um comando que executa código enquanto o mentor não escrever na conversa uma linha começando com “Previsão:”.">portão de previsão</span>. Ele barra a execução enquanto não houver uma linha "Previsão:" escrita. A aula 13 conta essa história.</p></details>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Se o aviso aparecer e nada acontecer, escreva na conversa: "rode o arquivo e mostre a saída". Se aparecer em todo pedido, até sem código, anote o pedido e o aviso: é bloqueio indevido, e o guia do kit pede para registrar.</p></div>
+</section>
+
+<section class="practice" data-mode="prompt">
+  <p class="pk">Pratique agora <span class="pcount">0/4</span></p>
+  <h3 class="ph">Provoque o portão do seu mentor</h3>
+  <p class="pgoal">Pronto quando o aviso aparecer no primeiro pedido e não aparecer no segundo. Cerca de 8 minutos, no computador.</p>
+  <p class="psafe">O arquivo de teste tem uma linha só e você apaga no fim. Nada do acervo muda. Se o aviso não aparecer, feche o Claude Code, confira com o comando ls se a pasta tem o arquivo CLAUDE.md e abra de novo ali dentro.</p>
+  <p>Use a pasta do mentor que você criou na aula 3 com o novo-mentor.py. Não fez a aula 3? O portão só existe dentro dessa pasta: volte lá, são 2 comandos.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Crie o arquivo teste_portao.py com um print e NÃO rode.</pre></div>
+  <p>O pedido manda criar um programa de uma linha que só escreve uma frase na tela (o "print"). Ele existe só para provocar o portão.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">cd &lt;caminho da pasta do seu mentor&gt;
+claude</pre></div>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>No terminal, entre na pasta do mentor e abra o Claude Code com os dois comandos do segundo bloco.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Copie o primeiro pedido, mande e procure o aviso com "Você escreveu código e não rodou". Depois dele, o mentor pode rodar o arquivo ou explicar que você pediu para não rodar. Os dois são normais.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Mande agora "só liste os arquivos com ls" e confira: nenhum aviso.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="4"> <span>Peça "apague o teste_portao.py" e confira que ele sumiu da lista.</span></label></li>
+  </ol>
+  <p class="pdone">Você provocou a trava de propósito e viu que ela segura só o que precisa segurar.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>O portão de execução</h3>
+    <ol>
+      <li><span><b>A regra</b>código escrito e não rodado não deixa a resposta terminar.</span></li>
+      <li><span><b>O aviso</b>"Stop hook error occurred" é a trava; leia o nome do arquivo na linha seguinte.</span></li>
+      <li><span><b>Não é rodar</b>listar, abrir, checar ou guardar cópia. Rodar é executar e ver a saída.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe que o seu mentor não consegue dizer "funciona" sem rodar.</p>
+    <p class="na-action">Hoje, peça ao mentor uma tarefa pequena do seu trabalho que envolva código. Confira se a resposta tem uma Saída real colada. Uns 10 minutos.</p>
+    <p class="na-hook">Na próxima aula: o mentor está pronto, mas ele ensina de verdade? Você vai rodar o primeiro dos 3 testes do piloto.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a class="next" href="#aula-12">próxima aula →</a></nav>
+<p class="aula-pe">Aula 11 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-11">
+[
+  {"front":"Apareceu \"Stop hook error occurred\" depois que o mentor criou um arquivo. O que você faz primeiro?","back":"Lê a linha seguinte: ela diz qual arquivo ficou sem rodar. Depois espera o mentor rodar, ou pede para ele rodar e mostrar a saída."},
+  {"front":"O mentor abriu o arquivo, guardou um commit e disse que estava pronto. O portão deveria segurar essa resposta?","back":"Sim. Abrir e guardar cópia não executam o arquivo. Só rodar de verdade tira a anotação."},
+  {"front":"O aviso apareceu num pedido de resumo de texto, sem nenhum código. Como você classifica isso?","back":"Como bloqueio indevido. Anote o pedido e o aviso para registrar, como pede o guia do kit."}
+]
+</script>
+</section>

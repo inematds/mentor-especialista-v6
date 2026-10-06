@@ -1,0 +1,169 @@
+<section class="view" id="v-aula-1" data-aula="1" data-tempo="14min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 1 de 14</p>
+  <h1>A IA que <em>parece certa</em> sem estar</h1>
+  <figure class="cena"><img src="assets/img/aula-1.webp" width="1280" height="720" alt="Marta, professora de óculos e cabelo grisalho curto, compara desconfiada duas folhas impressas com respostas diferentes; uma delas está cheia de marcações vermelhas."></figure>
+  <p class="promise">Você consegue apontar, numa resposta real de IA, os quatro maus hábitos que ela tem quando tenta ensinar.</p>
+  <p class="why">Você pede para a IA explicar e recebe um texto seguro, organizado e longo. Só depois descobre que ele supôs coisas, falou no geral ou estava errado. Quem quer aprender não tem como perceber isso sozinho.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Quando ensina, a IA costuma explicar demais, parecer certa sem estar, supor sem avisar e falar no genérico.</li>
+      <li>"Funciona" só vale depois que alguém rodou e mostrou o resultado.</li>
+      <li>Um mentor corrige isso com fontes, regras com prova e um portão que obriga a rodar.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Explicar demais também atrapalha</h2>
+  <p>Pergunte algo simples e a IA devolve doze tópicos. Tudo parece útil, nada diz por onde começar. Quem está aprendendo sai mais perdido do que entrou.</p>
+  <p data-ex="professora">Marta, professora do 4º ano, perguntou como montar uma roda de leitura de 30 minutos. Recebeu uma aula inteira sobre teoria da leitura antes do primeiro passo prático.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA</span></div>
+      <div class="tela-caso" data-rotulo="Doze tópicos">
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Marta</span>Como monto uma roda de leitura de 30 minutos com o 4º ano?</p>
+        <p class="msg ia falha"><span class="quem">IA</span>Ótima pergunta! A roda de leitura é uma prática fundamental. Vamos ver 12 pontos essenciais:
+1. A importância da leitura na formação…
+2. Os diferentes tipos de leitor…
+3. Como escolher o acervo…
+(e mais nove)</p>
+      </div>
+      <p class="tela-nota ruim">Doze tópicos e nenhum "comece por aqui". Ela parou de ler no terceiro.</p>
+      </div>
+      <div class="tela-caso" data-rotulo="Um primeiro passo">
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Marta</span>Como monto uma roda de leitura de 30 minutos com o 4º ano?</p>
+        <p class="msg ia ok"><span class="quem">Mentor</span>Comece pelo mínimo: um livro curto, você lê em voz alta e para numa cena.
+Depois, uma pergunta só para a roda: "o que você acha que acontece agora?"
+Faça assim uma vez antes de pensar no resto.</p>
+      </div>
+      <p class="tela-nota bom">Um passo que dá para fazer amanhã. O resto vem depois.</p>
+      </div>
+    </div>
+    <figcaption><b>Toque nos dois botões</b>: volume não é ensino, o primeiro passo é.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>"O validador passa" não é prova</h2>
+  <p>Este é o hábito mais caro. Em palavras simples: a IA diz "testei, deu certo" sem ter testado direito. Ela afirma com segurança que algo funciona, sem ter conferido do jeito certo. O caso abaixo aconteceu no piloto real do mentor do Nei, dentro do <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>.</p>
+  <p>Um <span class="gterm" data-def="um pequeno programa do kit que confere um resultado e responde só aprovado ou reprovado, sem opinião.">validador</span> conferia se o mentor tinha escrito a previsão antes de rodar o código. A sessão de trabalho rodou o validador sem o registro da conversa e disse "passa". Rodado de fora, com o registro, ele reprovou.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">O que a sessão disse</span><p>"O validador passa."</p><p>Ela rodou o validador sem o registro da conversa, então ele não tinha o que reprovar.</p></div>
+      <div class="depois"><span class="rot">O que o validador de fora disse</span><p>Reprovado.</p><p>Com o registro, ele viu que o mentor rodou o código antes de escrever a previsão.</p></div>
+      <p class="saldo"><b>Saldo:</b> reprovado em duas rodadas seguidas. Só depois de uma correção no kit o teste passou.</p>
+    </div>
+    <figcaption>A mesma conferência, feita de dois jeitos. Só a segunda olhou o que de fato aconteceu.</figcaption>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Você não precisa entender o validador agora. Guarde só isto: "funciona" sem resultado mostrado é opinião. Peça sempre para ver o que rodou e o que voltou.</p></div>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Supor sem avisar e falar no genérico</h2>
+  <p>Quando falta informação, a IA completa com o caso mais comum e não conta que fez isso. E quando você queria o jeito de um especialista, ela responde com a média da internet.</p>
+  <p data-ex="consultor">Rui, consultor de vendas, perguntou como responder a um cliente que achou o preço alto. Ele segue há anos o método de Otávio Lessa, um especialista em vendas consultivas.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA</span></div>
+      <div class="tela-caso" data-rotulo="Resposta comum">
+        <div class="tela-body">
+          <p class="msg eu"><span class="quem">Rui</span>O cliente disse que o preço está alto. Como respondo?</p>
+          <p class="msg ia falha"><span class="quem">IA</span>Ofereça um desconto de entrada e destaque o valor do produto. Grandes empresas costumam aceitar parcelamento…</p>
+        </div>
+        <p class="tela-nota ruim">Supôs que era empresa grande e que desconto serve. Não avisou. E não é o método do Otávio.</p>
+      </div>
+      <div class="tela-caso" data-rotulo="Resposta de mentor">
+        <div class="tela-body">
+          <p class="msg eu"><span class="quem">Rui</span>O cliente disse que o preço está alto. Como respondo?</p>
+          <p class="msg ia ok"><span class="quem">Mentor</span>Supus que é uma venda nova, não uma renovação. Se for renovação, me avise.
+Nos vídeos e textos do Otávio que eu li, a regra é perguntar antes de baixar preço: "alto comparado com o quê?" (fonte: o vídeo dele sobre objeção de preço)</p>
+        </div>
+        <p class="tela-nota bom">Diz o que supôs e aponta de onde tirou a regra.</p>
+      </div>
+    </div>
+    <figcaption><b>Toque nos dois botões</b> e compare o que cada resposta conta sobre ela mesma.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>Por que um mentor, e não mais um pedido</h2>
+  <p>Escrever um pedido melhor ajuda, mas não basta. No piloto, nem a instrução explícita "preveja antes de rodar" fez a IA mudar. Só mudou quando entrou um mecanismo que obrigava.</p>
+  <p>O mentor que você vai montar neste curso junta três coisas. Ele aprende só com o que o especialista publicou. Cada regra dele mostra o trecho de onde saiu. E ele só diz "funciona" depois de rodar.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Pedido solto</span><p>Aprende com a média da internet.</p><p>Afirma sem mostrar de onde.</p><p>Diz "funciona" sem rodar.</p></div>
+      <div class="depois"><span class="rot">Mentor</span><p>Aprende com o acervo de uma pessoa só.</p><p>Cada regra traz o trecho de origem.</p><p>Só termina depois de rodar e mostrar.</p></div>
+      <p class="saldo"><b>Saldo do piloto:</b> o mentor do Nei leu 22 fontes dele, cada uma das 10 regras aponta o trecho de origem, e passou nos 5 critérios de teste.</p>
+    </div>
+  </figure>
+  <div class="quiz" data-answer="c">
+    <p class="qk">Teste-se</p>
+    <p class="q">A IA respondeu "pronto, a planilha calcula certo agora", sem mostrar nenhum resultado. Qual hábito é esse?</p>
+    <button class="opt" data-k="a" data-fb="Não. A resposta foi curta, o problema não é volume.">Explicar demais do assunto</button>
+    <button class="opt" data-k="b" data-fb="Não exatamente. O problema não é ser geral, é afirmar sem conferir.">Falar só no genérico</button>
+    <button class="opt" data-k="c" data-fb="Isso. Sem o cálculo rodado e mostrado, o &quot;pronto&quot; é só uma afirmação.">Parecer certa sem estar</button>
+    <p class="qfb" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="practice" data-mode="analise">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Ache os quatro hábitos numa resposta real</h3>
+  <p class="pgoal">Pronto quando você marcar os quatro hábitos na resposta abaixo. Cerca de 8 minutos, no celular ou no papel.</p>
+  <p class="psafe">É só leitura: nada é enviado a ninguém. Anote no papel ou nas Notas do celular. Se não achar algum hábito, abra o gabarito e releia a resposta com ele do lado.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Marta</span>Quero usar o método da professora Helena Duarte para corrigir as redações da turma. Como faço?</p>
+        <p class="msg ia falha"><span class="quem">IA</span>Ótimo! Vou supor que sua turma é do ensino médio. A correção de redações envolve muitos aspectos: coesão, coerência, gramática, ortografia, pontuação, repertório, argumentação, estrutura, tipologia textual e adequação ao tema. Use uma grade com notas de 0 a 200 por competência, que é a prática mais usada no Brasil. Testei esse modelo e ele funciona em qualquer turma.</p>
+      </div>
+    </div>
+  </figure>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Leia a resposta e sublinhe no papel a frase em que a IA supõe algo. Ela avisou ou não?</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Marque onde ela explica demais e onde fala no genérico, longe do método da Helena.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Ache a frase que parece certa sem estar e escreva o que faltou mostrar.</span></label></li>
+  </ol>
+  <details class="gabarito"><summary>Ver o gabarito</summary>
+    <p><b>Supõe:</b> "vou supor que é ensino médio". Aqui ela até avisou, mas supôs errado: Marta dá aula no 4º ano.</p>
+    <p><b>Explica demais:</b> a lista de dez aspectos, sem dizer por onde começar.</p>
+    <p><b>Genérico:</b> "a prática mais usada no Brasil". Nada ali vem da Helena, que era o pedido.</p>
+    <p><b>Parece certa sem estar:</b> "testei e funciona em qualquer turma". Não há teste nenhum mostrado.</p>
+  </details>
+  <p class="pdone">Você acabou de ler uma resposta segura e apontar onde ela não merecia confiança.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Os quatro maus hábitos</h3>
+    <ol>
+      <li><span><b>Demais ou de menos</b>muito tópico e nenhum primeiro passo.</span></li>
+      <li><span><b>Certa sem estar</b>"funciona" sem resultado mostrado é opinião.</span></li>
+      <li><span><b>Suposição e média</b>completa o que faltou sem contar, e responde com o jeito de todo mundo.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já reconhece quando uma resposta de IA ensina mal, mesmo bem escrita.</p>
+    <p class="na-action">Hoje, pegue a última explicação que você pediu a uma IA e procure nela os quatro hábitos. Anote nas Notas qual apareceu mais.</p>
+    <p class="na-hook">Na próxima aula: o mentor vai copiar o método de alguém que você admira. Antes, você decide exatamente o que ele ensina e o que fica de fora.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a class="next" href="#aula-2">próxima aula →</a></nav>
+<p class="aula-pe">Aula 1 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-1">
+[
+  {"front":"A IA terminou a resposta com \"isso resolve o seu caso\" e não mostrou nada rodando. O que você pede antes de confiar?","back":"O resultado: o que foi rodado e o que voltou. Sem isso, a afirmação é só opinião."},
+  {"front":"Você pediu o jeito de um especialista e recebeu dicas que serviriam para qualquer pessoa. Qual hábito apareceu?","back":"Falar no genérico: ela respondeu com a média, não com o acervo da pessoa que você escolheu."},
+  {"front":"Por que, no piloto, escrever \"preveja antes de rodar\" na instrução não resolveu?","back":"Porque instrução a IA pode ignorar. Só um mecanismo que bloqueava a execução sem previsão mudou o comportamento."}
+]
+</script>
+</section>

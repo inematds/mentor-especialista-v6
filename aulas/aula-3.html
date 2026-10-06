@@ -1,0 +1,151 @@
+<section class="view" id="v-aula-3" data-aula="3" data-tempo="16min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 3 de 14</p>
+  <h1>Criar a <em>pasta</em> do seu mentor</h1>
+  <figure class="cena"><img src="assets/img/aula-3.webp" width="1280" height="720" alt="Marta, satisfeita, com uma xícara de café ao lado, abre no notebook uma pasta nova cheia de subpastas organizadas."></figure>
+  <p class="promise">Você consegue criar a pasta do seu mentor com dois comandos e conferir que nasceram o agente, as seis skills e o portão.</p>
+  <p class="why">Montar um mentor do zero levaria dias: pastas, regras, conferências. O kit da comunidade INEMA faz esse esqueleto em segundos. Você só precisa colar dois comandos e saber o que olhar no resultado.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Primeiro comando: baixar o kit para o seu computador.</li>
+      <li>Segundo comando: criar o mentor com nome, especialista e a frase de domínio.</li>
+      <li>Confira três coisas: o agente, as seis skills e o portão.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Confira as três ferramentas antes</h2>
+  <p>Tudo nesta aula acontece no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>. O kit precisa de três ferramentas no computador: <span class="gterm" data-def="a linguagem em que os programas do kit foram escritos. Você não precisa saber escrever nela; o comando python3 os executa.">Python</span>, <span class="gterm" data-def="o programa que guarda cópias datadas de uma pasta, para você ver o que mudou e voltar a uma versão anterior. Também baixa projetos do GitHub.">git</span> e o <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span>, que você já abriu antes.</p>
+  <p>Para abrir: no Windows, procure "PowerShell" no menu Iniciar; no Mac, procure "Terminal" no Spotlight; no Linux, aperte Ctrl+Alt+T. Abre uma janela com uma linha piscando. Ali você cola o comando e aperta Enter.</p>
+  <p data-ex="professora">Marta abriu o terminal do notebook da escola e digitou os dois comandos abaixo. Cada um respondeu com um número de versão.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 --version
+<span class="out">Python 3.12.3</span>
+<span class="pr">$</span> git --version
+<span class="out">git version 2.43.0</span></code></pre>
+<p class="tela-nota">Na máquina do exemplo saiu Python 3.12.3. Serve qualquer Python 3.10 ou acima e qualquer git.</p></div>
+  <figcaption>Se cada comando devolve uma versão, a ferramenta está lá.</figcaption></figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>No Windows, "python3" às vezes não existe. Digite <code>python --version</code> e use "python" no lugar de "python3" em todos os comandos desta aula. Se aparecer "não reconhecido" ou "command not found", a ferramenta falta: baixe o Python em python.org e o git em git-scm.com, use as opções padrão, feche e abra o terminal de novo.</p></div>
+</section>
+
+<section class="step" data-kind="tarefa">
+  <h2><span class="n">2</span>Primeiro comando: baixar o kit</h2>
+  <p>O kit fica num <span class="gterm" data-def="pasta de projeto guardada com todo o histórico de versões, que pode ser baixada inteira.">repositório</span> público no <span class="gterm" data-def="site onde ficam guardados repositórios de projetos, públicos ou privados.">GitHub</span>. O comando abaixo baixa uma cópia dele para a sua pasta pessoal.</p>
+  <p data-ex="consultor">Rui colou o comando no terminal do escritório. Em poucos segundos apareceu a pasta mentor-especialista dentro da pasta dele.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> git clone https://github.com/inematds/mentor-especialista.git ~/mentor-especialista
+<span class="out">Cloning into '/home/rui/mentor-especialista'...</span>
+<span class="out">done.</span></code></pre>
+<p class="tela-nota">O "~" é a sua pasta pessoal. A cópia do kit fica em mentor-especialista, dentro dela.</p></div>
+  <figcaption>Um comando, uma pasta nova. Você só faz isso uma vez.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="tarefa">
+  <h2><span class="n">3</span>Segundo comando: criar o mentor</h2>
+  <p>Agora entra o <span class="gterm" data-def="um arquivo com instruções que o computador executa de uma vez, como um programa pequeno.">script</span> novo-mentor.py. Ele pede um <span class="gterm" data-def="o nome curto do mentor, em minúsculas, sem espaço nem acento (ex.: helena). Vira o nome da pasta e dos comandos.">slug</span>, o nome do especialista e a frase de domínio que você escreveu na aula 2.</p>
+  <p data-ex="professora">Marta usou o slug helena e colou a frase de domínio que tinha guardado nas Notas. Veja a resposta real do kit.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 ~/mentor-especialista/novo-mentor.py helena --nome "Helena Duarte" --dominio "ensinar a montar a avaliação de uma unidade no ensino fundamental" --destino ~/mentores
+<span class="out">Mentor criado em /home/marta/mentores/mentor-helena
+
+Próximos passos:
+  1. cd /home/marta/mentores/mentor-helena
+  2. Preencha ESCOPO.md (fontes) e ajuste mentor.config.json (metas, transcritor)
+  3. Abra o Claude Code nessa pasta e rode, em ordem:
+       /helena-coletar
+       /helena-compilar
+       /helena-regras</span></code></pre>
+<p class="tela-nota">A primeira linha da resposta diz onde o mentor nasceu. Os "Próximos passos" não são para agora: são as aulas seguintes.</p></div>
+  <figcaption>Não fez a aula 2? Use por enquanto uma frase simples, como "ensinar a preparar reuniões de venda". Dá para trocar depois no ESCOPO.md.</figcaption></figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>O que cada pasta guarda</h2>
+  <p>Dentro de mentores/mentor-helena nasceu uma estrutura pronta. Você não precisa decorar. Basta saber onde mora cada parte.</p>
+  <p>A pasta .claude começa com ponto, por isso fica oculta no gerenciador de arquivos. As três peças que você vai conferir moram nela: o agente, as seis <span class="gterm" data-def="pacote de instruções que vira um comando do Claude Code, como /helena-ensina. Cada skill faz uma tarefa do mentor.">skills</span> e o <span class="gterm" data-def="a trava do kit que não deixa o mentor encerrar a resposta quando escreveu código e não rodou.">portão de execução</span>, que é um <span class="gterm" data-def="um pequeno programa que o Claude Code roda sozinho num momento combinado, por exemplo antes de um comando ou quando tenta encerrar a resposta.">hook</span>.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>mentor-helena</span></div>
+      <div class="janela-body">
+        <div class="item pasta"><span class="pin">1</span> raw</div>
+        <div class="item pasta"><span class="pin">2</span> wiki</div>
+        <div class="item doc"><span class="pin">3</span> regras.md · ESCOPO.md · mentor.config.json</div>
+        <div class="item pasta"><span class="pin">4</span> .claude</div>
+        <div class="item doc dentro">agents/helena-mentor.md</div>
+        <div class="item pasta dentro">skills (6 pastas)</div>
+        <div class="item doc dentro">hooks/portao-execucao.py</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span><span class="gterm" data-def="a pasta raw/ do mentor: o acervo cru, do jeito que foi coletado. Raw quer dizer cru em inglês. Depois de coletado, ninguém edita.">raw</span>: o acervo bruto, intocável depois de coletado.</span></li>
+      <li><span class="pin">2</span><span><span class="gterm" data-def="o conjunto de páginas curtas, escritas a partir do acervo e ligadas entre si, que o mentor consulta antes de responder.">wiki</span>: o acervo organizado em páginas ligadas.</span></li>
+      <li><span class="pin">3</span><span><span class="gterm" data-def="o arquivo com as regras de conduta do mentor; cada regra traz o status e os trechos do especialista que a provam.">regras.md</span> guarda as regras, <span class="gterm" data-def="o arquivo de texto do mentor que diz quem é o especialista, o domínio em uma frase, as fontes a coletar e o que fica de fora.">ESCOPO.md</span> as fontes e <span class="gterm" data-def="ficha de ajustes do mentor: metas de coleta, transcritor e outras opções que mudam de uma casa para outra.">mentor.config.json</span> as metas.</span></li>
+      <li><span class="pin">4</span><span>.claude: o agente, as skills e o portão.</span></li>
+    </ol>
+  </figure>
+</section>
+
+<section class="practice" data-mode="tarefa">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Crie o seu mentor e confira o que nasceu</h3>
+  <p class="pgoal">Pronto quando o terminal listar o agente, as seis skills e o portão. Cerca de 10 minutos, no computador.</p>
+  <p class="psafe">Tudo fica numa pasta nova só sua; nada é enviado a lugar nenhum. Se aparecer "já existe", escolha outro slug. Se aparecer "slug inválido", use só minúsculas, números e hífen.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">git clone https://github.com/inematds/mentor-especialista.git ~/mentor-especialista
+
+python3 ~/mentor-especialista/novo-mentor.py &lt;slug&gt; --nome "&lt;nome do especialista&gt;" --dominio "&lt;sua frase de domínio&gt;" --destino ~/mentores
+
+cd ~/mentores/mentor-&lt;slug&gt;
+
+ls .claude/agents .claude/skills .claude/hooks</pre></div>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> cd ~/mentores/mentor-otavio
+<span class="pr">$</span> ls .claude/agents .claude/skills .claude/hooks
+<span class="out">.claude/agents:
+otavio-mentor.md
+
+.claude/hooks:
+portao-execucao.py
+
+.claude/skills:
+otavio-coletar  otavio-compilar  otavio-ensina
+otavio-ingere   otavio-regras    otavio-revisa</span></code></pre>
+<p class="tela-nota">O cd entra na pasta do mentor; o ls lista o que tem dentro. É o que o Rui viu com o slug otavio: um agente, um portão e seis skills.</p></div></figure>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Cole o primeiro comando no terminal e espere aparecer "done".</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>No segundo, troque o que está entre &lt; &gt; pelos seus dados e cole. Confira a linha "Mentor criado em".</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Cole o cd com o seu slug para entrar na pasta do mentor. Depois cole o ls e conte: um agente, um portão, seis skills.</span></label></li>
+  </ol>
+  <p class="pdone">Você criou o esqueleto do seu mentor e conferiu as três peças. Nas próximas aulas, sempre que pedirem para "entrar na pasta do mentor", é abrir o terminal e colar cd ~/mentores/mentor-&lt;seu slug&gt;.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Pasta do mentor</h3>
+    <ol>
+      <li><span><b>Baixar</b>git clone traz o kit uma vez só.</span></li>
+      <li><span><b>Criar</b>novo-mentor.py com slug, nome e frase de domínio.</span></li>
+      <li><span><b>Conferir</b>cd entra na pasta; ls mostra agente, seis skills e o portão.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já tem a pasta do seu mentor criada e sabe onde mora cada parte dela.</p>
+    <p class="na-action">Hoje, abra o ESCOPO.md da pasta nova num editor de texto e confira se a sua frase de domínio está lá.</p>
+    <p class="na-hook">Na próxima aula: a pasta raw está vazia. Você vai listar dez fontes do seu especialista e descobrir como juntá-las sem pagar nada.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-2">← aula anterior</a><a class="next" href="#aula-4">próxima aula →</a></nav>
+<p class="aula-pe">Aula 3 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-3">
+[
+  {"front":"O terminal respondeu \"já existe\" ao criar o mentor. O que você faz?","back":"Escolhe outro slug. O kit não sobrescreve uma pasta de mentor que já existe."},
+  {"front":"Você procurou a pasta .claude no gerenciador de arquivos e não achou. Ela não foi criada?","back":"Provavelmente foi: pastas que começam com ponto ficam ocultas. Confira pelo terminal com ls."},
+  {"front":"Qual parte da pasta do mentor guarda o acervo bruto, e o que nunca se faz com ela?","back":"A pasta raw. Depois de coletado, o conteúdo dela não é alterado."}
+]
+</script>
+</section>

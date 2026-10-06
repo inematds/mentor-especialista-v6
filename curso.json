@@ -1,0 +1,92 @@
+{
+  "id": "mentorv6",
+  "titulo": "Mentor-Especialista v6 — Uma IA que ensina do jeito de quem você admira",
+  "titulo_html": "Uma IA que ensina do jeito de <em>quem você admira</em>",
+  "curso_curto": "Mentor-Especialista v6",
+  "kicker": "Mentor-Especialista v6 · 4 módulos · aulas de uns 15 minutos",
+  "lead": "Você monta no Claude Code um mentor que ensina no método de um especialista que você acompanha. Ele aprende só com o que essa pessoa publicou, mostra de onde tirou cada regra e só diz que funciona depois de rodar. O caso real do curso é o mentor do Nei, com acertos e falhas.",
+  "imagem_trilha": "assets/img/trilha.webp",
+  "alt_trilha": "Uma professora e um consultor sentados lado a lado diante de um notebook, com livros abertos e cadernos de anotações na mesa, conferindo juntos uma lista de regras.",
+  "rodape": "Mentor-Especialista v6 · INEMA.CLUB · <a href=\"landing.html\">sobre o curso</a>",
+  "landing": "landing.html",
+  "perfil": "tecnico",
+  "termos": [
+    "Claude Code",
+    "terminal",
+    "script",
+    "Python",
+    "raw",
+    "wiki",
+    "manifesto",
+    "MANIFESTO.json",
+    "hash",
+    "yt-dlp",
+    "subagente",
+    "subagentes",
+    "skill",
+    "skills",
+    "hook",
+    "hooks",
+    "settings.json",
+    "validador",
+    "exit 0",
+    "exit 1",
+    "regras.md",
+    "portão de execução",
+    "portão de previsão",
+    "git",
+    "commit",
+    "push",
+    "GitHub",
+    "repositório",
+    "API",
+    "slug",
+    "ESCOPO.md",
+    "mentor.config.json",
+    "hot.md",
+    "index.md",
+    "log.md",
+    "UTF-8",
+    "cp1252"
+  ],
+  "modulos": [
+    {
+      "titulo": "Módulo 1 · Por que um mentor",
+      "resumo": "Ver onde a IA falha quando ensina e criar a pasta do seu mentor.",
+      "aulas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "titulo": "Módulo 2 · Montar o acervo",
+      "resumo": "Juntar o que o especialista publicou e organizar numa wiki que a IA consulta.",
+      "aulas": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "titulo": "Módulo 3 · Regras e mentor",
+      "resumo": "Tirar as regras com prova e ligar o mentor que só afirma o que rodou.",
+      "aulas": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "titulo": "Módulo 4 · Provar e manter",
+      "resumo": "Passar nos 3 testes, entender o portão de previsão e ensinar coisa nova ao mentor.",
+      "aulas": [
+        12,
+        13,
+        14
+      ]
+    }
+  ]
+}

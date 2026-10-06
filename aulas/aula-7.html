@@ -1,0 +1,132 @@
+<section class="view" id="v-aula-7" data-aula="7" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 7 de 14</p>
+  <h1>A página hot e o teste do <em>"é a pessoa?"</em></h1>
+  <figure class="cena"><img src="assets/img/aula-7.webp" width="1280" height="720" alt="Marta, professora, segura uma ficha de anotações e a compara com a foto de um quadro de aula do especialista, conferindo se as duas dizem a mesma coisa."></figure>
+  <p class="promise">Você consegue julgar se uma página da wiki reflete o seu especialista ou a IA genérica, apontando o sinal que decidiu.</p>
+  <p class="why">O validador da aula 6 provou que as ligações da wiki estão certas. Ele não prova que o conteúdo é da pessoa. Uma wiki inteira pode passar no validador falando como um manual qualquer.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>A página hot é a porta de entrada: os conceitos mais citados, com o número de fontes de cada um.</li>
+      <li>Toda ligação vai e volta: da fonte para a ideia e da ideia para a fonte.</li>
+      <li>Página boa tem frase que você acha no acervo. Página genérica serviria para qualquer especialista.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>A porta de entrada mostra o que pesa</h2>
+  <p>O mentor não abre as 76 páginas a cada pergunta. Ele começa pelo <span class="gterm" data-def="a página de entrada da wiki: os conceitos que o especialista mais repete, em ordem de quantas fontes falam deles.">hot.md</span>: a página de abertura da wiki, com a lista dos assuntos mais citados. Ela fica na pasta wiki do mentor. O número entre parênteses diz quantas fontes falam daquilo.</p>
+  <p>Ler a hot é o jeito mais rápido de julgar a <span class="gterm" data-def="o conjunto de páginas curtas, escritas a partir do acervo e ligadas entre si, que o mentor consulta antes de responder.">wiki</span>. Se o topo da lista não tem a cara do especialista, o resto também não vai ter.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>wiki/hot.md · mentor do Nei, fase 2 do piloto</span></div>
+      <div class="tela-body">
+        <p class="msg ia ok"><span class="quem">Princípios</span>1. verificar antes de afirmar (17) — o OK da ferramenta não prova nada; confere o resultado real.
+2. menor custo que resolve (16) — custo entra na conta antes de construir.
+3. medir antes de acreditar (14) — decisão vem do número, não do hype.
+4. critério de pronto explícito (10) — pronto é um comando com a saída esperada.</p>
+      </div>
+      <p class="tela-nota bom">O Nei leu e reconheceu o próprio jeito de trabalhar: deu nota 8 de 10.</p>
+    </div>
+    <figcaption>Olhe os números entre parênteses: o que aparece em 17 fontes pesa mais do que o que aparece em uma.</figcaption>
+  </figure>
+  <p data-ex="professora">Marta abriu a hot do mentor da Helena Duarte, uma especialista fictícia em avaliação escolar. O primeiro item era "devolutiva antes da nota (12)". Ela reconheceu na hora.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Toda ligação vai e volta</h2>
+  <p>Cada página de fonte aponta para as ideias que ela sustenta. Cada ideia aponta de volta para as fontes. Quando falta a volta, o mentor acha a ideia mas não sabe de onde ela veio. Aí ele afirma sem poder mostrar a prova.</p>
+  <p>Desde a versão 1.3 do kit, o <span class="gterm" data-def="um pequeno programa do kit que confere um resultado e responde só aprovado ou reprovado, sem opinião.">validador</span> de ligações cobra a ida e a volta. Ligação de mão única vira erro e o resultado deixa de ser <span class="gterm" data-def="o código que um programa devolve quando terminou sem problema. No kit, quer dizer aprovado.">exit 0</span>.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> python3 tools/validar_links.py
+<span class="out">mão única: subagentes → fontes/video-transcript, mas a fonte não liga de volta</span></code></pre>
+<p class="tela-nota">Aviso real do kit: a página de um tema aponta para uma fonte, e essa fonte não aponta de volta. A correção é pedir ao Claude Code: "feche as ligações de mão única que o validador listou".</p></div>
+  <figcaption>No mentor do Nei, o validador achou 3 ligações assim. As 3 foram fechadas.</figcaption></figure>
+  <p data-ex="consultor de vendas">Rui ingeriu um vídeo novo do Otávio Lessa, consultor fictício de vendas. A página nova apontava para "diagnóstico antes da proposta", mas ninguém reabriu essa página. O validador acusou a volta que faltava.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>É a pessoa ou é a IA genérica?</h2>
+  <p>Aqui entra o seu julgamento. Leia o enunciado de uma página de princípio e pergunte: isto caberia em qualquer manual da área? Se sim, é genérico.</p>
+  <p>Página da pessoa tem trecho literal, exemplo do mundo dela e um limite que só quem pratica conhece. Página genérica tem lista de boas práticas sem nenhum caso.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="depois"><span class="rot">Dele</span><p><b>Enunciado:</b> "O OK da ferramenta não prova nada."</p><p><b>Trecho:</b> "Arquivo existir não é prova. O agente ter lido e usado é."</p><p>Frase concreta, de quem já levou o susto.</p></div>
+      <div class="antes"><span class="rot">Genérica</span><p><b>Enunciado:</b> "Sempre revise seu trabalho com atenção."</p><p><b>Trecho:</b> nenhum.</p><p>Exemplo inventado para esta aula: serviria para qualquer pessoa.</p></div>
+    </div>
+    <figcaption>O cartão <b>Dele</b> é a página real do mentor do Nei. O cartão <b>Genérica</b> mostra o que você procura para cortar.</figcaption>
+  </figure>
+  <p data-ex="professora">Marta achou na wiki da Helena: "valorize o progresso de cada aluno". Bonito e vazio. Outra página dizia "a rubrica com três níveis vai para a turma antes da prova". Essa era a Helena.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">4</span>Confira o trecho no acervo</h2>
+  <p>O teste final é procurar a frase no <span class="gterm" data-def="a pasta raw/ do mentor: o acervo cru, do jeito que foi coletado. Raw quer dizer cru em inglês. Depois de coletado, ninguém edita.">raw</span>. Se ela está lá, a página tem prova. Se não está, alguém inventou, e quase sempre foi a IA.</p>
+  <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
+<pre><code><span class="pr">$</span> grep -rl "Arquivo existir não é prova" raw/
+<span class="out">raw/guia/agente-claude-codex-migrar-do-claude-pro-codex-ou--ac8311.md</span>
+<span class="pr">$</span> grep -rl "Sempre revise seu trabalho" raw/
+<span class="pr">$</span></code></pre>
+<p class="tela-nota">O primeiro comando acha o arquivo de onde veio a frase. O segundo não devolve nada.</p></div>
+  <figcaption>Linha vazia depois do comando quer dizer: essa frase não existe no acervo.</figcaption></figure>
+  <p>Como fazer: troque o texto entre aspas por 4 ou 5 palavras da página e rode no <span class="gterm" data-def="a janela de texto onde você digita comandos para o computador, em vez de clicar, e lê a resposta logo abaixo.">terminal</span>, dentro da pasta do mentor. O $ não se digita. Saiu um nome de arquivo: a frase existe. Não saiu nada: a frase não existe no acervo.</p>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Frase de vídeo às vezes não aparece porque a legenda quebrou a fala em duas linhas. Procure só 3 ou 4 palavras do meio do trecho. Se ainda não achar, abra a fonte e leia em volta.</p></div>
+  <details class="mais"><summary>Quer saber de onde veio essa dica?</summary><p>No piloto, o Nei achou trechos cortados no meio, como "brilhante. Cuidado para vocês não". A legenda guardava a fala em linhas curtas, cada uma com a marca de tempo. O kit passou a juntar as linhas em parágrafos de cerca de 30 segundos, sem mexer no que já estava coletado.</p></details>
+</section>
+
+<section class="practice" data-mode="analise">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Separe 3 páginas dele de 3 genéricas</h3>
+  <p class="pgoal">Pronto quando você comparar a sua marcação com o gabarito, página por página. Cerca de 10 minutos.</p>
+  <p class="psafe">Este caso é inventado e fica só nesta página; na sua wiki, você repete o mesmo julgamento depois, no próximo passo da aula. Nada é enviado. Se errar alguma, leia o comentário do gabarito: o sinal que decidiu é o que importa.</p>
+  <p>Rui leu seis páginas de princípio da wiki do Otávio Lessa, consultor fictício de vendas. Antes, ele procurou cada trecho no acervo com o comando do step 4. O resultado da busca está entre colchetes.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">A. "Proposta só depois do diagnóstico assinado." Trecho: "sem diagnóstico assinado, proposta é chute com logotipo" [achado, 4 fontes]
+B. "Foque sempre no cliente." Trecho: nenhum [1 fonte]
+C. "Na primeira reunião, o cliente fala 70% do tempo." Trecho: "se eu falei mais que ele, a reunião foi minha e não dele" [achado, 3 fontes]
+D. "Construa relacionamentos duradouros." Trecho: "relacionamento é tudo em vendas" [não achado]
+E. "Desconto só em troca de prazo ou volume." Trecho: "desconto de graça ensina o cliente a pedir de novo" [achado, 5 fontes]
+F. "Seja persistente e nunca desista." Trecho: nenhum [1 fonte]</pre></div>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>No papel ou no bloco de notas do celular, marque cada letra como DELE ou GENÉRICA.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Ao lado de cada letra, escreva o sinal que decidiu: trecho achado, número ou caso concreto, ou frase que serviria para qualquer um.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Abra o gabarito abaixo e compare as seis marcações, uma a uma.</span></label></li>
+  </ol>
+  <details class="gabarito"><summary>Gabarito comentado</summary>
+    <p><b>Dele: A, C e E.</b> As três têm trecho achado no acervo, mais de uma fonte e um detalhe que só quem vende sabe: o diagnóstico assinado, os 70%, a troca por prazo ou volume.</p>
+    <p><b>Genéricas: B, D e F.</b> B e F não têm trecho e se apoiam numa fonte só. D é a pegadinha: tem um "trecho", mas ele não existe no acervo. Foi a IA que escreveu.</p>
+    <p><b>O que Rui faz com as genéricas:</b> pede ao <span class="gterm" data-def="o programa da Anthropic que conversa com você no terminal e trabalha numa pasta do seu computador: lê, cria arquivos e roda comandos a seu pedido.">Claude Code</span> para trocar o enunciado por um trecho literal ou rebaixar a ideia a tema. Depois roda o validador de novo.</p>
+  </details>
+  <p class="pdone">Você julgou uma wiki pelo que só a pessoa diria, e não pelo que soa bem.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>É a pessoa?</h3>
+    <ol>
+      <li><span><b>Comece pela hot</b>o topo da lista tem de ter a cara do especialista.</span></li>
+      <li><span><b>Ida e volta</b>fonte aponta para a ideia, ideia aponta para a fonte.</span></li>
+      <li><span><b>Trecho achado</b>frase que não está no raw não é dele, por mais bonita que seja.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe separar o que é do especialista do que é enchimento da IA.</p>
+    <p class="na-action">Hoje, leia os 5 primeiros itens da hot do seu mentor. Para o primeiro princípio, procure um trecho no acervo com o comando do step 4. Não fez a aula 6? Use a hot da pasta exemplo do kit.</p>
+    <p class="na-hook">Na próxima aula: dos princípios da wiki saem as regras do mentor. Você vai ver por que "foque no cliente" nunca vira regra.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-6">← aula anterior</a><a class="next" href="#aula-8">próxima aula →</a></nav>
+<p class="aula-pe">Aula 7 · Mentor-Especialista v6 · INEMA.CLUB</p>
+</div>
+<script type="application/json" id="cards-7">
+[
+  {"front":"O validador de ligações terminou em 0. Isso garante que a wiki fala como o seu especialista?","back":"Não. Ele prova a estrutura das ligações, não a autoria. Quem julga se é a pessoa é você, lendo e conferindo os trechos."},
+  {"front":"Uma página de princípio traz uma frase entre aspas que a busca no acervo não encontra. Qual o diagnóstico mais provável?","back":"A frase foi escrita pela IA, não pela pessoa. Troque por um trecho real ou rebaixe a ideia a tema."},
+  {"front":"Na hot, um item aparece com (1) e outro com (15). Qual deles pesa mais para o mentor, e por quê?","back":"O de 15: o especialista voltou àquilo em quinze fontes diferentes. O de uma fonte pode ser comentário de passagem."}
+]
+</script>
+</section>
